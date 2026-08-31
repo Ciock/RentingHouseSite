@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO DOMINIO: sostituire https://ciock.github.io/RentingHouseSite/ con il dominio definitivo
+     e aggiornare <lastmod> a ogni modifica sostanziale dei contenuti. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://ciock.github.io/RentingHouseSite/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ciock.github.io/RentingHouseSite/assets/img/hero-camera.jpg</image:loc>
+      <image:title>Camera per studenti — Residence Roma Piacenza</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ciock.github.io/RentingHouseSite/assets/img/camera-singola.jpg</image:loc>
+      <image:title>Camera singola — Residence Roma Piacenza</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ciock.github.io/RentingHouseSite/assets/img/camera-doppia.jpg</image:loc>
+      <image:title>Camera doppia — Residence Roma Piacenza</image:title>
+    </image:image>
+  </url>
+</urlset>

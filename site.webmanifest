@@ -1,0 +1,15 @@
+{
+  "name": "Residence Roma Piacenza",
+  "short_name": "Residence Roma",
+  "description": "Camere per studenti a Piacenza — Via Roma 324. Singole e doppie con bagno privato, climatizzatore e Wi-Fi gratuito.",
+  "lang": "it-IT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0E2148",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

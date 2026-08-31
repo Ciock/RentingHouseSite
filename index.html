@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Attiva le micro-animazioni solo se il JS è disponibile: senza JS il contenuto resta visibile. -->
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- ============================= SEO ============================= -->
+<title>Camere per Studenti a Piacenza | Residence Roma Piacenza</title>
+<meta name="description" content="Camere singole e doppie per studenti a Piacenza, in Via Roma 324. Bagno privato, climatizzatore, Wi-Fi gratis e cucina comune. A 4 minuti dal Politecnico.">
+<meta name="keywords" content="residence studenti Piacenza, affitto camere studenti Piacenza, camere singole studenti Piacenza, camere doppie studenti Piacenza, alloggi Politecnico Piacenza, stanze universitari Piacenza">
+<meta name="author" content="Residence Roma Piacenza">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0E2148">
+
+<!-- TODO DOMINIO: quando il cliente conferma il dominio definitivo, sostituire
+     https://ciock.github.io/RentingHouseSite/ in questo file, in sitemap.xml e in robots.txt -->
+<link rel="canonical" href="https://ciock.github.io/RentingHouseSite/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Residence Roma Piacenza">
+<meta property="og:title" content="Residence Roma Piacenza — Camere per studenti">
+<meta property="og:description" content="Camere singole e doppie con bagno privato, climatizzatore e Wi-Fi gratuito. In Via Roma 324, a 4 minuti dal Politecnico di Milano — polo di Piacenza.">
+<meta property="og:url" content="https://ciock.github.io/RentingHouseSite/">
+<meta property="og:image" content="https://ciock.github.io/RentingHouseSite/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Residence Roma Piacenza — camere per studenti in Via Roma 324">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Residence Roma Piacenza — Camere per studenti">
+<meta name="twitter:description" content="Camere singole e doppie con bagno privato, climatizzatore e Wi-Fi gratuito, a 4 minuti dal Politecnico di Piacenza.">
+<meta name="twitter:image" content="https://ciock.github.io/RentingHouseSite/assets/img/og-image.jpg">
+
+<!-- Icone -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- ====================== Performance / asset ====================== -->
+<link rel="preload" as="image" href="assets/img/hero-camera.jpg" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Font Google caricato in modo non bloccante: il testo è subito leggibile
+     con lo stack di sistema e il font subentra appena disponibile. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap"></noscript>
+
+<script src="assets/js/main.js" defer></script>
+
+<!-- ===================== Dati strutturati ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ciock.github.io/RentingHouseSite/#website",
+      "url": "https://ciock.github.io/RentingHouseSite/",
+      "name": "Residence Roma Piacenza",
+      "inLanguage": "it-IT",
+      "publisher": { "@id": "https://ciock.github.io/RentingHouseSite/#residence" }
+    },
+    {
+      "@type": ["LodgingBusiness", "LocalBusiness"],
+      "@id": "https://ciock.github.io/RentingHouseSite/#residence",
+      "name": "Residence Roma Piacenza",
+      "alternateName": "Residence Roma",
+      "slogan": "Live · Study · Connect.",
+      "description": "Residence per studenti universitari a Piacenza, in Via Roma 324. Camere indipendenti singole e doppie, tutte con bagno privato, climatizzatore e angolo bar con frigorifero. Cucina e sala comune, lavanderia, cortile interno privato, posto biciclette e Wi-Fi ad alta velocità gratuito. Edificio di nuova ristrutturazione.",
+      "url": "https://ciock.github.io/RentingHouseSite/",
+      "telephone": "+39 392 971 5552",
+      "email": "ResidenceRoma.Piacenza@gmail.com",
+      "image": [
+        "https://ciock.github.io/RentingHouseSite/assets/img/og-image.jpg",
+        "https://ciock.github.io/RentingHouseSite/assets/img/hero-camera.jpg"
+      ],
+      "logo": "https://ciock.github.io/RentingHouseSite/assets/img/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Roma 324",
+        "addressLocality": "Piacenza",
+        "addressRegion": "PC",
+        "addressCountry": "IT"
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Via+Roma+324%2C+Piacenza",
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Wi-Fi ad alta velocità gratuito", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Bagno privato in ogni camera", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Climatizzatore", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Angolo bar con frigorifero in camera", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cucina e sala comune", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Lavanderia comune", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cortile interno privato", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Posto biciclette", "value": true }
+      ],
+      "containsPlace": [
+        {
+          "@type": "Accommodation",
+          "name": "Camera singola",
+          "description": "Camera singola indipendente con bagno privato, climatizzatore e angolo bar con frigorifero.",
+          "occupancy": { "@type": "QuantitativeValue", "maxValue": 1, "unitCode": "C62" },
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Bagno privato", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Climatizzatore", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Frigorifero", "value": true }
+          ]
+        },
+        {
+          "@type": "Accommodation",
+          "name": "Camera doppia",
+          "description": "Camera doppia indipendente con bagno privato, climatizzatore e angolo bar con frigorifero.",
+          "occupancy": { "@type": "QuantitativeValue", "maxValue": 2, "unitCode": "C62" },
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Bagno privato", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Climatizzatore", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Frigorifero", "value": true }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body id="top">
+
+<a class="skip-link" href="#main">Vai al contenuto principale</a>
+
+<!-- ========== Sprite di icone SVG (inline, zero richieste di rete) ========== -->
+<svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 8.8a16 16 0 0 1 20 0"/><path d="M5 12.5a11 11 0 0 1 14 0"/><path d="M8.5 16.2a6 6 0 0 1 7 0"/><path d="M12 20h.01"/></symbol>
+    <symbol id="i-laundry" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><circle cx="12" cy="14" r="4.5"/><path d="M7.5 6h.01"/><path d="M11 6h.01"/></symbol>
+    <symbol id="i-kitchen" viewBox="0 0 24 24"><path d="M4 2v6a2.5 2.5 0 0 0 5 0V2"/><path d="M6.5 10.5V22"/><path d="M19.5 2c-1.8 1.2-3 3.3-3 5.8v5.2h3"/><path d="M19.5 2v20"/></symbol>
+    <symbol id="i-courtyard" viewBox="0 0 24 24"><path d="M7 21h10"/><path d="M12 21V9"/><path d="M12 9a5 5 0 0 1 5-5h2v2a5 5 0 0 1-5 5h-2Z"/><path d="M12 13h-2a5 5 0 0 1-5-5V6h2a5 5 0 0 1 5 5Z"/></symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="15" cy="4.8" r="1.3"/><path d="M5.5 17.5 9.5 8h4.2l2.6 4h2.7"/><path d="M9.5 8h5"/></symbol>
+    <symbol id="i-fridge" viewBox="0 0 24 24"><rect x="5.5" y="2.5" width="13" height="19" rx="2.5"/><path d="M5.5 10h13"/><path d="M8.5 6v2"/><path d="M8.5 13v3"/></symbol>
+    <symbol id="i-ac" viewBox="0 0 24 24"><path d="M12 2.5v19"/><path d="M2.5 12h19"/><path d="m5.3 5.3 13.4 13.4"/><path d="m18.7 5.3-13.4 13.4"/><path d="m9.5 5 2.5-2.5L14.5 5"/><path d="m9.5 19 2.5 2.5L14.5 19"/><path d="m5 9.5-2.5 2.5L5 14.5"/><path d="m19 9.5 2.5 2.5L19 14.5"/></symbol>
+    <symbol id="i-bath" viewBox="0 0 24 24"><path d="M4.5 11.5V5.2a2.2 2.2 0 0 1 4.4 0"/><path d="M2.5 11.5h19v3.2a5 5 0 0 1-5 5h-9a5 5 0 0 1-5-5v-3.2Z"/><path d="M6.5 19.7V22"/><path d="M17.5 19.7V22"/><path d="M6.7 5.2h.01"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2.5 20v-8a2 2 0 0 1 2-2h15a2 2 0 0 1 2 2v8"/><path d="M2.5 16.5h19"/><path d="M4.5 10V6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2V10"/><path d="M7.5 10V8h3.2v2"/><path d="M13.3 10V8h3.2v2"/></symbol>
+    <symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13.5" cy="4" r="2"/><path d="m9 21.5 2.4-6.4-2.6-2.6.6-4.3 3.6 2 3 1.6"/><path d="m11.4 15.1 2.4 6.4"/><path d="M8.8 12.5 6 15.2"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="13" rx="2.5"/><path d="M4 10.5h16"/><path d="M8 13.5h.01"/><path d="M16 13.5h.01"/><path d="M6.5 16v2.5"/><path d="M17.5 16v2.5"/></symbol>
+    <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="13" rx="3"/><path d="M5 10h14"/><path d="M9.2 13h.01"/><path d="M14.8 13h.01"/><path d="m7.5 15.5-2 5"/><path d="m16.5 15.5 2 5"/><path d="M8.5 20.5h7"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9.5" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2.5 3.5H5l2.6 12.2h11.3L21 7.5H6"/></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><path d="m12 3.2 9.5 4.6L12 12.4 2.5 7.8 12 3.2Z"/><path d="M6.2 10.2v5c0 1.7 2.6 3 5.8 3s5.8-1.3 5.8-3v-5"/><path d="M21.2 8.1v5.6"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><circle cx="6.5" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9.5 18V5.2l11.5-2.2V16"/><path d="M9.5 8.6 21 6.4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M15.5 21.5C8.6 21.5 2.5 15.4 2.5 8.5a3 3 0 0 1 3-3h1.7a1.5 1.5 0 0 1 1.45 1.13l.7 2.8a1.5 1.5 0 0 1-.4 1.45L7.6 12.2a13.6 13.6 0 0 0 4.2 4.2l1.32-1.35a1.5 1.5 0 0 1 1.45-.4l2.8.7a1.5 1.5 0 0 1 1.13 1.45v1.7a3 3 0 0 1-3 3Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.2 7 8 5.3a2 2 0 0 0 2.2 0l8-5.3"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12.04 2C6.6 2 2.16 6.44 2.16 11.88c0 1.76.47 3.48 1.35 5L2 22l5.3-1.38a9.87 9.87 0 0 0 4.74 1.2h.01c5.44 0 9.88-4.43 9.88-9.88S17.48 2 12.04 2Zm5.79 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-1.14.07-1.84-.12-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5-4.43-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.78-.37h.56c.18 0 .42-.07.66.5.24.59.83 2.03.9 2.18.08.15.13.32.03.52-.1.2-.15.32-.3.5l-.45.5c-.15.15-.3.31-.13.61.17.3.76 1.25 1.64 2.03 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.64-.07.17-.2.73-.85.93-1.15.2-.3.4-.25.66-.15.27.1 1.7.8 2 .95.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-5.6 7-11.2a7 7 0 1 0-14 0c0 5.6 7 11.2 7 11.2Z"/><circle cx="12" cy="10.1" r="2.6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12"/><path d="M18 6 6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><path d="M15 3.5h5.5V9"/><path d="M9 20.5H3.5V15"/><path d="M20.5 3.5 14 10"/><path d="M3.5 20.5 10 14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h15"/><path d="m13 5.5 6.5 6.5-6.5 6.5"/></symbol>
+    <symbol id="i-blueprint" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5"/><path d="M2.5 9h6"/><path d="M8.5 2.5v19"/><path d="M15 21.5V15h6.5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m11 2.5 2 4.9 4.9 2-4.9 2-2 4.9-2-4.9-4.9-2 4.9-2 2-4.9Z"/><path d="m18.5 15 .9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9.9-2.3Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.6 6.4h.01"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2.5h-3a5 5 0 0 0-5 5v3H7v4h3v7h4v-7h3l1-4h-4v-3a1 1 0 0 1 1-1h3Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+
+    <a class="brand" href="#top" aria-label="Residence Roma Piacenza — torna all'inizio">
+      <!-- PLACEHOLDER LOGO: sostituire questo <svg> con il logo definitivo
+           (es. <img src="assets/img/logo-residence-roma.svg" width="40" height="40" alt="">) -->
+      <span class="brand__mark" aria-hidden="true">R</span>
+      <span class="brand__text">
+        <span class="brand__name">Residence <em>Roma</em></span>
+        <span class="brand__city">Piacenza</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" type="button"
+            aria-expanded="false" aria-controls="primary-nav" aria-label="Apri il menu di navigazione">
+      <svg class="icon nav-toggle__open" aria-hidden="true"><use href="#i-menu"></use></svg>
+      <svg class="icon nav-toggle__close" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigazione principale">
+      <ul class="nav__list">
+        <li><a href="#camere">Le camere</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#planimetrie">Planimetrie</a></li>
+        <li><a href="#posizione">Posizione</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+      <a class="btn btn--wa nav__cta"
+         href="https://wa.me/393929715552?text=Ciao%2C%20ho%20visto%20il%20sito%20del%20Residence%20Roma%20Piacenza%20e%20vorrei%20informazioni%20sulla%20disponibilit%C3%A0%20delle%20camere."
+         target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+        WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================= HERO ============================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+
+      <div class="hero__copy">
+        <p class="badge">
+          <svg class="icon" aria-hidden="true"><use href="#i-sparkle"></use></svg>
+          Nuova ristrutturazione
+        </p>
+
+        <h1 id="hero-title">
+          Camere per studenti a Piacenza,<br>
+          <span class="hl">a 4 minuti dal Politecnico</span>
+        </h1>
+
+        <p class="hero__tagline">Live · Study · Connect.</p>
+
+        <p class="hero__lead">
+          Cerchi una casa per studenti comoda, moderna e ben collegata?
+          Il <strong>Residence Roma Piacenza</strong> è la soluzione ideale per te:
+          camere indipendenti singole e doppie, tutte con bagno privato e climatizzatore,
+          in un edificio appena ristrutturato in Via Roma 324.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--wa btn--lg"
+             href="https://wa.me/393929715552?text=Ciao%2C%20ho%20visto%20il%20sito%20del%20Residence%20Roma%20Piacenza%20e%20vorrei%20prenotare%20una%20visita."
+             target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+            Prenota una visita
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#camere">
+            Scopri le camere
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+
+        <ul class="hero__trust" aria-label="Caratteristiche principali">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-bath"></use></svg>Bagno privato</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-ac"></use></svg>Climatizzatore</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg>Wi-Fi gratuito</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Via Roma 324</li>
+        </ul>
+      </div>
+
+      <figure class="hero__media">
+        <!-- PLACEHOLDER: sostituire assets/img/hero-camera.jpg con il render reale (1600x1067, 3:2) -->
+        <img src="assets/img/hero-camera.jpg" width="1600" height="1067"
+             fetchpriority="high" decoding="async"
+             alt="Camera per studenti del Residence Roma Piacenza, arredata e appena ristrutturata">
+        <figcaption class="hero__media-tag">
+          <svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>
+          Singole e doppie disponibili
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ============================ CAMERE ============================ -->
+  <section class="section" id="camere" aria-labelledby="camere-title">
+    <div class="container">
+
+      <header class="section__head reveal">
+        <p class="eyebrow">Le camere</p>
+        <h2 id="camere-title">Camere indipendenti, singole e doppie</h2>
+        <p class="section__lead">
+          Tutte le camere del residence sono indipendenti e pensate per chi studia:
+          <strong>bagno privato</strong>, <strong>climatizzatore</strong> e un
+          <strong>angolo bar con frigorifero</strong> per preparare pasti semplici
+          senza uscire dalla stanza.
+        </p>
+      </header>
+
+      <div class="rooms">
+
+        <article class="room-card reveal">
+          <div class="room-card__media">
+            <!-- PLACEHOLDER: sostituire assets/img/camera-singola.jpg (1200x800, 3:2) -->
+            <img src="assets/img/camera-singola.jpg" width="1200" height="800"
+                 loading="lazy" decoding="async"
+                 alt="Camera singola per studenti con letto, scrivania e bagno privato al Residence Roma Piacenza">
+            <span class="room-card__label">Singola</span>
+          </div>
+          <div class="room-card__body">
+            <h3>Camera singola</h3>
+            <p>
+              Il tuo spazio, solo tuo. Ideale per chi cerca silenzio e concentrazione
+              nei periodi di sessione, senza rinunciare alla vita comune del residence.
+            </p>
+            <ul class="feat-list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Camera indipendente</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Bagno privato</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Climatizzatore</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Angolo bar con frigorifero</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Possibilità di cucinare pasti semplici</li>
+            </ul>
+            <a class="btn btn--outline"
+               href="https://wa.me/393929715552?text=Ciao%2C%20vorrei%20informazioni%20sulla%20disponibilit%C3%A0%20di%20una%20CAMERA%20SINGOLA%20al%20Residence%20Roma%20Piacenza."
+               target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+              Chiedi disponibilità
+            </a>
+          </div>
+        </article>
+
+        <article class="room-card reveal">
+          <div class="room-card__media">
+            <!-- PLACEHOLDER: sostituire assets/img/camera-doppia.jpg (1200x800, 3:2) -->
+            <img src="assets/img/camera-doppia.jpg" width="1200" height="800"
+                 loading="lazy" decoding="async"
+                 alt="Camera doppia per studenti con due letti e bagno privato al Residence Roma Piacenza">
+            <span class="room-card__label">Doppia</span>
+          </div>
+          <div class="room-card__body">
+            <h3>Camera doppia</h3>
+            <p>
+              Da condividere con un amico o con un altro studente, senza rinunciare a
+              bagno privato e climatizzatore all'interno della stanza.
+            </p>
+            <ul class="feat-list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Camera indipendente</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Bagno privato</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Climatizzatore</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Angolo bar con frigorifero</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Possibilità di cucinare pasti semplici</li>
+            </ul>
+            <a class="btn btn--outline"
+               href="https://wa.me/393929715552?text=Ciao%2C%20vorrei%20informazioni%20sulla%20disponibilit%C3%A0%20di%20una%20CAMERA%20DOPPIA%20al%20Residence%20Roma%20Piacenza."
+               target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+              Chiedi disponibilità
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <h3 class="gallery__title reveal">Gli spazi del residence</h3>
+      <ul class="gallery reveal" aria-label="Galleria fotografica del residence">
+        <li>
+          <button class="gallery__item" type="button"
+                  data-lightbox
+                  data-src="assets/img/angolo-bar.jpg"
+                  data-caption="Angolo bar in camera: frigorifero e possibilità di cucinare pasti semplici.">
+            <!-- PLACEHOLDER: sostituire assets/img/angolo-bar.jpg (1200x800) -->
+            <img src="assets/img/angolo-bar.jpg" width="1200" height="800" loading="lazy" decoding="async"
+                 alt="Angolo bar con frigorifero all'interno di una camera del Residence Roma Piacenza">
+            <span class="gallery__zoom" aria-hidden="true"><svg class="icon"><use href="#i-zoom"></use></svg></span>
+            <span class="gallery__cap">Angolo bar in camera</span>
+          </button>
+        </li>
+        <li>
+          <button class="gallery__item" type="button"
+                  data-lightbox
+                  data-src="assets/img/cucina-comune.jpg"
+                  data-caption="Cucina e sala comune: lo spazio dove studiare, cucinare e socializzare.">
+            <!-- PLACEHOLDER: sostituire assets/img/cucina-comune.jpg (1200x800) -->
+            <img src="assets/img/cucina-comune.jpg" width="1200" height="800" loading="lazy" decoding="async"
+                 alt="Cucina e sala comune del Residence Roma Piacenza per studiare e socializzare">
+            <span class="gallery__zoom" aria-hidden="true"><svg class="icon"><use href="#i-zoom"></use></svg></span>
+            <span class="gallery__cap">Cucina e sala comune</span>
+          </button>
+        </li>
+        <li>
+          <button class="gallery__item" type="button"
+                  data-lightbox
+                  data-src="assets/img/cortile-interno.jpg"
+                  data-caption="Il cortile interno privato del residence.">
+            <!-- PLACEHOLDER: sostituire assets/img/cortile-interno.jpg (1200x800) -->
+            <img src="assets/img/cortile-interno.jpg" width="1200" height="800" loading="lazy" decoding="async"
+                 alt="Cortile interno privato del Residence Roma Piacenza">
+            <span class="gallery__zoom" aria-hidden="true"><svg class="icon"><use href="#i-zoom"></use></svg></span>
+            <span class="gallery__cap">Cortile interno privato</span>
+          </button>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ============================ SERVIZI ============================ -->
+  <section class="section section--alt" id="servizi" aria-labelledby="servizi-title">
+    <div class="container">
+
+      <header class="section__head reveal">
+        <p class="eyebrow">Cosa offriamo</p>
+        <h2 id="servizi-title">Servizi inclusi</h2>
+        <p class="section__lead">
+          Tutto quello che serve per vivere bene l'anno accademico è già compreso,
+          dentro la struttura.
+        </p>
+      </header>
+
+      <ul class="services">
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg></span>
+          <h3>Wi-Fi ad alta velocità gratuito</h3>
+          <p>Connessione veloce e inclusa in tutta la struttura: lezioni online, streaming e download senza pensieri.</p>
+        </li>
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-kitchen"></use></svg></span>
+          <h3>Cucina e sala comune</h3>
+          <p>Uno spazio condiviso dove cucinare, studiare insieme e socializzare con gli altri studenti del residence.</p>
+        </li>
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-laundry"></use></svg></span>
+          <h3>Lavanderia comune</h3>
+          <p>Lavanderia a disposizione di tutti gli inquilini, direttamente all'interno della struttura.</p>
+        </li>
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-courtyard"></use></svg></span>
+          <h3>Cortile interno privato</h3>
+          <p>Un'area privata all'aperto dove staccare tra una lezione e l'altra, al riparo dal traffico.</p>
+        </li>
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-bike"></use></svg></span>
+          <h3>Posto biciclette</h3>
+          <p>Spazio dedicato alle bici: a Piacenza è il modo più rapido per raggiungere le università.</p>
+        </li>
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-bath"></use></svg></span>
+          <h3>Bagno privato in ogni camera</h3>
+          <p>Nessun bagno condiviso: ogni camera, singola o doppia, ha il suo bagno privato.</p>
+        </li>
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-ac"></use></svg></span>
+          <h3>Climatizzatore</h3>
+          <p>Aria condizionata in tutte le camere, per studiare bene anche durante la sessione estiva.</p>
+        </li>
+        <li class="service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-fridge"></use></svg></span>
+          <h3>Angolo bar con frigorifero</h3>
+          <p>Frigorifero in stanza e possibilità di preparare pasti semplici quando vuoi.</p>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- =========================== PLANIMETRIE =========================== -->
+  <section class="section" id="planimetrie" aria-labelledby="planimetrie-title">
+    <div class="container">
+
+      <header class="section__head reveal">
+        <p class="eyebrow">Spazi e metrature</p>
+        <h2 id="planimetrie-title">Planimetrie</h2>
+        <p class="section__lead">
+          Stiamo preparando le planimetrie aggiornate dopo la ristrutturazione.
+          Nel frattempo, per la disposizione degli spazi e le metrature scrivici pure:
+          rispondiamo direttamente su WhatsApp.
+        </p>
+      </header>
+
+      <ul class="plans" aria-label="Planimetrie del residence">
+        <li class="reveal">
+          <button class="plan" type="button"
+                  data-lightbox
+                  data-src="assets/img/planimetria-camera-singola.jpg"
+                  data-caption="Planimetria della camera singola — Residence Roma Piacenza.">
+            <!-- PLACEHOLDER: sostituire assets/img/planimetria-camera-singola.jpg (1200x900, 4:3) -->
+            <img src="assets/img/planimetria-camera-singola.jpg" width="1200" height="900"
+                 loading="lazy" decoding="async"
+                 alt="Planimetria della camera singola del Residence Roma Piacenza">
+            <span class="plan__foot">
+              <span class="plan__name">
+                <svg class="icon" aria-hidden="true"><use href="#i-blueprint"></use></svg>
+                Camera singola
+              </span>
+              <span class="plan__zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"></use></svg> Ingrandisci</span>
+            </span>
+          </button>
+        </li>
+        <li class="reveal">
+          <button class="plan" type="button"
+                  data-lightbox
+                  data-src="assets/img/planimetria-camera-doppia.jpg"
+                  data-caption="Planimetria della camera doppia — Residence Roma Piacenza.">
+            <!-- PLACEHOLDER: sostituire assets/img/planimetria-camera-doppia.jpg (1200x900, 4:3) -->
+            <img src="assets/img/planimetria-camera-doppia.jpg" width="1200" height="900"
+                 loading="lazy" decoding="async"
+                 alt="Planimetria della camera doppia del Residence Roma Piacenza">
+            <span class="plan__foot">
+              <span class="plan__name">
+                <svg class="icon" aria-hidden="true"><use href="#i-blueprint"></use></svg>
+                Camera doppia
+              </span>
+              <span class="plan__zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"></use></svg> Ingrandisci</span>
+            </span>
+          </button>
+        </li>
+        <li class="reveal">
+          <button class="plan" type="button"
+                  data-lightbox
+                  data-src="assets/img/planimetria-piano.jpg"
+                  data-caption="Planimetria del piano tipo con camere e spazi comuni.">
+            <!-- PLACEHOLDER: sostituire assets/img/planimetria-piano.jpg (1200x900, 4:3) -->
+            <img src="assets/img/planimetria-piano.jpg" width="1200" height="900"
+                 loading="lazy" decoding="async"
+                 alt="Planimetria del piano tipo del Residence Roma Piacenza con camere e spazi comuni">
+            <span class="plan__foot">
+              <span class="plan__name">
+                <svg class="icon" aria-hidden="true"><use href="#i-blueprint"></use></svg>
+                Piano tipo
+              </span>
+              <span class="plan__zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"></use></svg> Ingrandisci</span>
+            </span>
+          </button>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- =========================== POSIZIONE =========================== -->
+  <section class="section section--alt" id="posizione" aria-labelledby="posizione-title">
+    <div class="container">
+
+      <header class="section__head reveal">
+        <p class="eyebrow">Dove siamo</p>
+        <h2 id="posizione-title">Posizione strategica</h2>
+        <p class="section__lead">
+          Siamo a pochi minuti a piedi, in bici o con i mezzi pubblici dalle università,
+          dalle stazioni e dai supermercati.
+        </p>
+      </header>
+
+      <div class="location">
+
+        <div class="location__info reveal">
+          <p class="address">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>
+            <span>
+              <strong>Residence Roma Piacenza</strong><br>
+              Via Roma 324, Piacenza (PC)
+            </span>
+          </p>
+
+          <h3 class="dist__title">Università</h3>
+          <ul class="dist">
+            <li>
+              <svg class="icon dist__mode" aria-hidden="true"><use href="#i-walk"></use></svg>
+              <span class="dist__place"><svg class="icon dist__kind" aria-hidden="true"><use href="#i-school"></use></svg> Politecnico di Milano — polo di Piacenza</span>
+              <span class="dist__time">4 min</span>
+            </li>
+            <li>
+              <svg class="icon dist__mode" aria-hidden="true"><use href="#i-bus"></use></svg>
+              <span class="dist__place"><svg class="icon dist__kind" aria-hidden="true"><use href="#i-school"></use></svg> Università Cattolica del Sacro Cuore</span>
+              <span class="dist__time">14 min in bus</span>
+            </li>
+            <li>
+              <svg class="icon dist__mode" aria-hidden="true"><use href="#i-bike"></use></svg>
+              <span class="dist__place"><svg class="icon dist__kind" aria-hidden="true"><use href="#i-school"></use></svg> Università degli Studi di Parma</span>
+              <span class="dist__time">7 min in bici</span>
+            </li>
+            <li>
+              <svg class="icon dist__mode" aria-hidden="true"><use href="#i-bike"></use></svg>
+              <span class="dist__place"><svg class="icon dist__kind" aria-hidden="true"><use href="#i-music"></use></svg> Conservatorio Nicolini</span>
+              <span class="dist__time">5 min in bici</span>
+            </li>
+          </ul>
+
+          <h3 class="dist__title">Trasporti e spesa</h3>
+          <ul class="dist">
+            <li>
+              <svg class="icon dist__mode" aria-hidden="true"><use href="#i-train"></use></svg>
+              <span class="dist__place">Stazione dei treni</span>
+              <span class="dist__time">8 min</span>
+            </li>
+            <li>
+              <svg class="icon dist__mode" aria-hidden="true"><use href="#i-bus"></use></svg>
+              <span class="dist__place">Stazione dei bus</span>
+              <span class="dist__time">4 min</span>
+            </li>
+            <li>
+              <svg class="icon dist__mode" aria-hidden="true"><use href="#i-cart"></use></svg>
+              <span class="dist__place">Supermercati: Lidl, Esselunga, Asia Supermarket</span>
+              <span class="dist__time">nelle vicinanze</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="location__map reveal">
+          <!-- Facade della mappa: l'iframe di Google Maps (~pesante) viene caricato
+               solo al click, così non rallenta il primo caricamento della pagina. -->
+          <div class="map" id="map" data-map-src="https://www.google.com/maps?q=Via%20Roma%20324%2C%20Piacenza&amp;output=embed">
+            <button class="map__cta" type="button" id="map-load">
+              <svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>
+              <span><strong>Mostra la mappa</strong><br>Via Roma 324, Piacenza</span>
+            </button>
+            <noscript>
+              <iframe class="map__frame" src="https://www.google.com/maps?q=Via%20Roma%20324%2C%20Piacenza&amp;output=embed"
+                      title="Mappa di Via Roma 324, Piacenza" loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </noscript>
+          </div>
+          <a class="map__link" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Roma+324%2C+Piacenza"
+             target="_blank" rel="noopener">
+            Apri in Google Maps
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CONTATTI ============================ -->
+  <section class="section section--cta" id="contatti" aria-labelledby="contatti-title">
+    <div class="container">
+
+      <header class="section__head section__head--light reveal">
+        <p class="eyebrow">Info e prenotazioni</p>
+        <h2 id="contatti-title">Prenota una visita</h2>
+        <p class="section__lead">
+          Vuoi vedere le camere di persona? Scrivici su WhatsApp o mandaci una mail:
+          ti rispondiamo con disponibilità, condizioni e un appuntamento per la visita.
+        </p>
+      </header>
+
+      <ul class="contacts">
+        <li class="contact contact--primary reveal">
+          <a href="https://wa.me/393929715552?text=Ciao%2C%20ho%20visto%20il%20sito%20del%20Residence%20Roma%20Piacenza%20e%20vorrei%20prenotare%20una%20visita."
+             target="_blank" rel="noopener">
+            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"></use></svg></span>
+            <span class="contact__body">
+              <span class="contact__label">Scrivici su WhatsApp</span>
+              <span class="contact__value">+39 392 971 5552</span>
+              <span class="contact__hint">Risposta rapida, anche per la visita</span>
+            </span>
+          </a>
+        </li>
+        <li class="contact reveal">
+          <a href="tel:+393929715552">
+            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span>
+            <span class="contact__body">
+              <span class="contact__label">Chiamaci</span>
+              <span class="contact__value">+39 392 971 5552</span>
+              <span class="contact__hint">Info e prenotazioni</span>
+            </span>
+          </a>
+        </li>
+        <li class="contact reveal">
+          <a href="mailto:ResidenceRoma.Piacenza@gmail.com?subject=Richiesta%20informazioni%20—%20Residence%20Roma%20Piacenza&amp;body=Ciao%2C%0A%0Avorrei%20informazioni%20sulla%20disponibilit%C3%A0%20delle%20camere%20(singola%2Fdoppia)%20e%20sulle%20condizioni.%0A%0AGrazie%2C">
+            <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></span>
+            <span class="contact__body">
+              <span class="contact__label">Scrivici una mail</span>
+              <span class="contact__value contact__value--sm">ResidenceRoma.Piacenza@gmail.com</span>
+              <span class="contact__hint">Ti rispondiamo il prima possibile</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="contacts__note">
+        Disponibilità aggiornata e condizioni economiche vengono comunicate
+        direttamente in fase di contatto.
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container footer__grid">
+
+    <div class="footer__brand">
+      <a class="brand brand--footer" href="#top">
+        <span class="brand__mark" aria-hidden="true">R</span>
+        <span class="brand__text">
+          <span class="brand__name">Residence <em>Roma</em></span>
+          <span class="brand__city">Piacenza</span>
+        </span>
+      </a>
+      <p class="footer__tagline">Live · Study · Connect.</p>
+      <p class="footer__pitch">La tua casa per studenti a Piacenza.</p>
+    </div>
+
+    <div class="footer__col">
+      <h2 class="footer__title">Contatti</h2>
+      <ul class="footer__list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg> Via Roma 324, Piacenza (PC)</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg> <a href="tel:+393929715552">+39 392 971 5552</a></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg> <a href="mailto:ResidenceRoma.Piacenza@gmail.com">ResidenceRoma.Piacenza@gmail.com</a></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"></use></svg> <a href="https://wa.me/393929715552" target="_blank" rel="noopener">Scrivici su WhatsApp</a></li>
+      </ul>
+    </div>
+
+    <nav class="footer__col" aria-label="Navigazione secondaria">
+      <h2 class="footer__title">Sezioni</h2>
+      <ul class="footer__list footer__list--nav">
+        <li><a href="#camere">Le camere</a></li>
+        <li><a href="#servizi">Servizi inclusi</a></li>
+        <li><a href="#planimetrie">Planimetrie</a></li>
+        <li><a href="#posizione">Posizione</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h2 class="footer__title">Seguici</h2>
+      <!-- PLACEHOLDER SOCIAL: inserire gli URL reali dei profili, oppure
+           eliminare l'intero blocco .footer__social se non ci sono social. -->
+      <ul class="footer__social">
+        <li>
+          <a href="#" aria-label="Instagram del Residence Roma Piacenza (link da inserire)">
+            <svg class="icon" aria-hidden="true"><use href="#i-instagram"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Facebook del Residence Roma Piacenza (link da inserire)">
+            <svg class="icon" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container footer__bottom">
+    <p>&copy; <span id="year">2026</span> Residence Roma Piacenza — Via Roma 324, Piacenza.</p>
+    <p class="footer__legal">Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<!-- CTA WhatsApp flottante (solo mobile) -->
+<a class="fab-wa"
+   href="https://wa.me/393929715552?text=Ciao%2C%20ho%20visto%20il%20sito%20del%20Residence%20Roma%20Piacenza%20e%20vorrei%20informazioni%20sulle%20camere."
+   target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+  <span>WhatsApp</span>
+</a>
+
+<!-- Lightbox per galleria e planimetrie -->
+<dialog class="lightbox" id="lightbox" aria-label="Immagine ingrandita">
+  <button class="lightbox__close" type="button" id="lightbox-close" aria-label="Chiudi l'immagine ingrandita">
+    <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+  </button>
+  <figure class="lightbox__fig">
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-cap"></figcaption>
+  </figure>
+</dialog>
+
+</body>
+</html>

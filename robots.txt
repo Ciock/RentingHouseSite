@@ -1,0 +1,7 @@
+# Residence Roma Piacenza
+# TODO DOMINIO: aggiornare l'URL della sitemap quando il dominio sarà definitivo.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ciock.github.io/RentingHouseSite/sitemap.xml
