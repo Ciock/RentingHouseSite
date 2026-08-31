@@ -70,6 +70,10 @@ body {
 img, svg, iframe { display: block; max-width: 100%; }
 img { height: auto; }
 
+/* <picture> non deve creare un box proprio: le regole di layout restano tutte
+   sulle <img>, come prima dell'introduzione delle varianti AVIF/WebP. */
+picture { display: contents; }
+
 a { color: var(--navy-700); text-decoration-color: rgba(27, 53, 104, .35); text-underline-offset: 3px; }
 a:hover { text-decoration-color: var(--gold-500); }
 
@@ -348,6 +352,28 @@ body.nav-open { overflow: hidden; }
 .hero__grid { display: grid; gap: clamp(2rem, 5vw, 3.5rem); position: relative; z-index: 1; }
 
 .hero h1 { color: #fff; margin-bottom: .35em; }
+
+/* Titolo hero: la riga in oro ruota fra le distanze.
+   .rotator riserva l'altezza della frase più lunga (calcolata in JS) così il
+   cambio di testo non sposta il resto della pagina.
+   .rotator__inner è inline-block perché gli elementi inline ignorano transform,
+   mentre .hl resta inline per mantenere la sottolineatura riga per riga. */
+.rotator { display: block; }
+.rotator__inner { display: inline-block; }
+
+.js .rotator__inner {
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.js .rotator__inner.is-out {
+  opacity: 0;
+  transform: translateY(-.22em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Nessuna rotazione automatica: il titolo resta fermo sulla prima frase.
+     Tutte le distanze restano leggibili nella sezione "Posizione strategica". */
+  .js .rotator__inner { transition: none; opacity: 1; transform: none; }
+}
 
 .hero__tagline {
   margin: 0 0 1rem;

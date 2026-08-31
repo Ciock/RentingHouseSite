@@ -165,6 +165,15 @@ grep -rl "ciock.github.io/RentingHouseSite" . --exclude-dir=.git
 * **Social**: nel footer i due link Instagram/Facebook hanno `href="#"`.
   Inserisci gli URL reali, oppure elimina l'intero blocco `<div class="footer__col">`
   che contiene `footer__social`.
+* **Titolo rotante dell'hero**: la riga in oro cicla fra le distanze. Le frasi
+  stanno nell'attributo `data-phrases` dello `<span class="rotator">` in
+  `index.html`, separate da `|`. Per aggiungerne, toglierne o riscriverne una
+  basta modificare quell'attributo — il JavaScript non va toccato.
+  Due regole: la **prima frase** deve restare identica al testo scritto dentro
+  `<span class="hl">` subito sotto (è quella che vedono Google e chi ha il
+  JavaScript disattivato), e conviene tenere le frasi di **lunghezza simile**,
+  perché lo spazio riservato è quello della frase più lunga. Velocità e durata
+  della dissolvenza sono `ROT_HOLD` e `ROT_FADE` in `assets/js/main.js`.
 * **Prezzi**: per scelta non sono pubblicati sul sito; la nota in fondo alla
   sezione contatti dice che vengono comunicati al primo contatto.
 

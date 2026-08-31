@@ -1,7 +1,7 @@
 /* =============================================================================
    Residence Roma Piacenza — JS vanilla, nessuna dipendenza.
-   1. Header sticky   2. Menu mobile   3. Scrollspy   4. Micro-animazioni
-   5. Lightbox        6. Mappa on-demand              7. Anno nel footer
+   1. Header sticky   2. Titolo hero rotante   3. Menu mobile   4. Scrollspy
+   5. Micro-animazioni   6. Lightbox   7. Mappa on-demand   8. Anno nel footer
    ========================================================================== */
 (function () {
   'use strict';
@@ -25,7 +25,86 @@
     onScroll();
   }
 
-  /* ----------------------------------------------------------- 2. Menu mobile */
+  /* ------------------------------------------------- 2. Titolo hero rotante */
+  var rotator = document.getElementById('hero-rotator');
+
+  if (rotator && !reduceMotion) {
+    var rotInner = rotator.querySelector('.rotator__inner');
+    var rotText = rotator.querySelector('.hl');
+    var phrases = (rotator.getAttribute('data-phrases') || '')
+      .split('|')
+      .map(function (t) { return t.trim(); })
+      .filter(Boolean);
+
+    if (rotInner && rotText && phrases.length > 1) {
+      var ROT_HOLD = 3200;   // quanto resta ferma ogni frase
+      var ROT_FADE = 300;    // deve coincidere con la transition in style.css
+      var rotIndex = 0;
+      var rotTimer = null;
+      var rotResize;
+
+      // Riserva l'altezza della frase più alta: senza questo ogni cambio di
+      // testo sposterebbe verso il basso tutto il contenuto della pagina.
+      function reserveHeight() {
+        var tallest = 0;
+        rotator.style.minHeight = '';
+        for (var i = 0; i < phrases.length; i++) {
+          rotText.textContent = phrases[i];
+          tallest = Math.max(tallest, rotator.offsetHeight);
+        }
+        rotText.textContent = phrases[rotIndex];
+        rotator.style.minHeight = tallest + 'px';
+      }
+
+      function showNext() {
+        rotInner.classList.add('is-out');
+        window.setTimeout(function () {
+          rotIndex = (rotIndex + 1) % phrases.length;
+          rotText.textContent = phrases[rotIndex];
+          rotInner.classList.remove('is-out');
+        }, ROT_FADE);
+      }
+
+      function rotPlay() {
+        if (rotTimer) return;
+        rotTimer = window.setInterval(showNext, ROT_HOLD);
+      }
+      function rotPause() {
+        window.clearInterval(rotTimer);
+        rotTimer = null;
+      }
+
+      reserveHeight();
+      // Con il font di sistema le altezze sono diverse: rimisura quando
+      // Manrope è pronto.
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { reserveHeight(); });
+      }
+
+      window.addEventListener('resize', function () {
+        window.clearTimeout(rotResize);
+        rotResize = window.setTimeout(reserveHeight, 150);
+      }, { passive: true });
+
+      // Si ferma quando la scheda non è visibile e quando il mouse o il focus
+      // sono sul titolo, per lasciare il tempo di leggere.
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) rotPause(); else rotPlay();
+      });
+
+      var heroTitle = document.getElementById('hero-title');
+      if (heroTitle) {
+        heroTitle.addEventListener('mouseenter', rotPause);
+        heroTitle.addEventListener('mouseleave', rotPlay);
+        heroTitle.addEventListener('focusin', rotPause);
+        heroTitle.addEventListener('focusout', rotPlay);
+      }
+
+      rotPlay();
+    }
+  }
+
+  /* ----------------------------------------------------------- 3. Menu mobile */
   var toggle = document.getElementById('nav-toggle');
   var nav = document.getElementById('primary-nav');
 
@@ -67,7 +146,7 @@
     else if (DESKTOP.addListener) DESKTOP.addListener(syncViewport);
   }
 
-  /* ------------------------------------------------------------ 3. Scrollspy */
+  /* ------------------------------------------------------------ 4. Scrollspy */
   var navLinks = nav ? Array.prototype.slice.call(nav.querySelectorAll('.nav__list a[href^="#"]')) : [];
   var sections = navLinks
     .map(function (a) { return document.querySelector(a.getAttribute('href')); })
@@ -95,7 +174,7 @@
     sections.forEach(function (s) { spy.observe(s); });
   }
 
-  /* --------------------------------------------------- 4. Micro-animazioni */
+  /* --------------------------------------------------- 5. Micro-animazioni */
   var revealables = document.querySelectorAll('.reveal');
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
@@ -116,7 +195,7 @@
     });
   }
 
-  /* ------------------------------------------------------------ 5. Lightbox */
+  /* ------------------------------------------------------------ 6. Lightbox */
   var dialog = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightbox-img');
   var lbCap = document.getElementById('lightbox-cap');
@@ -171,7 +250,7 @@
     dialog.addEventListener('close', closeLightbox);
   }
 
-  /* -------------------------------------------------------- 6. Mappa lazy */
+  /* -------------------------------------------------------- 7. Mappa lazy */
   var mapBox = document.getElementById('map');
   var mapBtn = document.getElementById('map-load');
 
@@ -190,7 +269,7 @@
     });
   }
 
-  /* ------------------------------------------------------- 7. Anno footer */
+  /* ------------------------------------------------------- 8. Anno footer */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();

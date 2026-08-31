@@ -43,7 +43,9 @@
 <link rel="manifest" href="site.webmanifest">
 
 <!-- ====================== Performance / asset ====================== -->
-<link rel="preload" as="image" href="assets/img/hero-camera.jpg" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" fetchpriority="high"
+      imagesizes="(min-width: 75em) 512px, (min-width: 64em) 45vw, 100vw"
+      imagesrcset="assets/img/opt/hero-camera-480.avif 480w, assets/img/opt/hero-camera-960.avif 960w, assets/img/opt/hero-camera-1440.avif 1440w, assets/img/opt/hero-camera-1600.avif 1600w">
 <link rel="stylesheet" href="assets/css/style.css">
 
 <!-- Font Google caricato in modo non bloccante: il testo è subito leggibile
@@ -219,9 +221,16 @@
           Nuova ristrutturazione
         </p>
 
+        <!-- La parte in oro ruota fra le distanze. Per modificarla basta agire su
+             data-phrases: le frasi sono separate da "|" e la prima deve restare
+             uguale al testo scritto qui sotto dentro <span class="hl">, che è
+             quello che vedono i motori di ricerca e chi ha JavaScript disattivato. -->
         <h1 id="hero-title">
           Camere per studenti a Piacenza,<br>
-          <span class="hl">a 4 minuti dal Politecnico</span>
+          <span class="rotator" id="hero-rotator"
+                data-phrases="a 4 minuti dal Politecnico|a 14 minuti in bus dalla Cattolica|a 7 minuti in bici dall'Ateneo di Parma|a 5 minuti in bici dal Conservatorio|a 8 minuti dalla stazione">
+            <span class="rotator__inner"><span class="hl">a 4 minuti dal Politecnico</span></span>
+          </span>
         </h1>
 
         <p class="hero__tagline">Live · Study · Connect.</p>
@@ -256,9 +265,13 @@
 
       <figure class="hero__media">
         <!-- PLACEHOLDER: sostituire assets/img/hero-camera.jpg con il render reale (1600x1067, 3:2) -->
-        <img src="assets/img/hero-camera.jpg" width="1600" height="1067"
-             fetchpriority="high" decoding="async"
-             alt="Camera per studenti del Residence Roma Piacenza, arredata e appena ristrutturata">
+        <picture>
+          <source type="image/avif" sizes="(min-width: 75em) 512px, (min-width: 64em) 45vw, 100vw"
+                  srcset="assets/img/opt/hero-camera-480.avif 480w, assets/img/opt/hero-camera-960.avif 960w, assets/img/opt/hero-camera-1440.avif 1440w, assets/img/opt/hero-camera-1600.avif 1600w">
+          <source type="image/webp" sizes="(min-width: 75em) 512px, (min-width: 64em) 45vw, 100vw"
+                  srcset="assets/img/opt/hero-camera-480.webp 480w, assets/img/opt/hero-camera-960.webp 960w, assets/img/opt/hero-camera-1440.webp 1440w, assets/img/opt/hero-camera-1600.webp 1600w">
+          <img src="assets/img/hero-camera.jpg" width="1600" height="1067" fetchpriority="high" decoding="async" alt="Camera per studenti del Residence Roma Piacenza, arredata e appena ristrutturata">
+        </picture>
         <figcaption class="hero__media-tag">
           <svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>
           Singole e doppie disponibili
@@ -288,9 +301,13 @@
         <article class="room-card reveal">
           <div class="room-card__media">
             <!-- PLACEHOLDER: sostituire assets/img/camera-singola.jpg (1200x800, 3:2) -->
-            <img src="assets/img/camera-singola.jpg" width="1200" height="800"
-                 loading="lazy" decoding="async"
-                 alt="Camera singola per studenti con letto, scrivania e bagno privato al Residence Roma Piacenza">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 552px, (min-width: 53.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/camera-singola-480.avif 480w, assets/img/opt/camera-singola-960.avif 960w, assets/img/opt/camera-singola-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 552px, (min-width: 53.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/camera-singola-480.webp 480w, assets/img/opt/camera-singola-960.webp 960w, assets/img/opt/camera-singola-1200.webp 1200w">
+              <img src="assets/img/camera-singola.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Camera singola per studenti con letto, scrivania e bagno privato al Residence Roma Piacenza">
+            </picture>
             <span class="room-card__label">Singola</span>
           </div>
           <div class="room-card__body">
@@ -318,9 +335,13 @@
         <article class="room-card reveal">
           <div class="room-card__media">
             <!-- PLACEHOLDER: sostituire assets/img/camera-doppia.jpg (1200x800, 3:2) -->
-            <img src="assets/img/camera-doppia.jpg" width="1200" height="800"
-                 loading="lazy" decoding="async"
-                 alt="Camera doppia per studenti con due letti e bagno privato al Residence Roma Piacenza">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 552px, (min-width: 53.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/camera-doppia-480.avif 480w, assets/img/opt/camera-doppia-960.avif 960w, assets/img/opt/camera-doppia-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 552px, (min-width: 53.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/camera-doppia-480.webp 480w, assets/img/opt/camera-doppia-960.webp 960w, assets/img/opt/camera-doppia-1200.webp 1200w">
+              <img src="assets/img/camera-doppia.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Camera doppia per studenti con due letti e bagno privato al Residence Roma Piacenza">
+            </picture>
             <span class="room-card__label">Doppia</span>
           </div>
           <div class="room-card__body">
@@ -355,8 +376,13 @@
                   data-src="assets/img/angolo-bar.jpg"
                   data-caption="Angolo bar in camera: frigorifero e possibilità di cucinare pasti semplici.">
             <!-- PLACEHOLDER: sostituire assets/img/angolo-bar.jpg (1200x800) -->
-            <img src="assets/img/angolo-bar.jpg" width="1200" height="800" loading="lazy" decoding="async"
-                 alt="Angolo bar con frigorifero all'interno di una camera del Residence Roma Piacenza">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 368px, (min-width: 43.75em) 30vw, 100vw"
+                      srcset="assets/img/opt/angolo-bar-480.avif 480w, assets/img/opt/angolo-bar-960.avif 960w, assets/img/opt/angolo-bar-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 368px, (min-width: 43.75em) 30vw, 100vw"
+                      srcset="assets/img/opt/angolo-bar-480.webp 480w, assets/img/opt/angolo-bar-960.webp 960w, assets/img/opt/angolo-bar-1200.webp 1200w">
+              <img src="assets/img/angolo-bar.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Angolo bar con frigorifero all'interno di una camera del Residence Roma Piacenza">
+            </picture>
             <span class="gallery__zoom" aria-hidden="true"><svg class="icon"><use href="#i-zoom"></use></svg></span>
             <span class="gallery__cap">Angolo bar in camera</span>
           </button>
@@ -367,8 +393,13 @@
                   data-src="assets/img/cucina-comune.jpg"
                   data-caption="Cucina e sala comune: lo spazio dove studiare, cucinare e socializzare.">
             <!-- PLACEHOLDER: sostituire assets/img/cucina-comune.jpg (1200x800) -->
-            <img src="assets/img/cucina-comune.jpg" width="1200" height="800" loading="lazy" decoding="async"
-                 alt="Cucina e sala comune del Residence Roma Piacenza per studiare e socializzare">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 368px, (min-width: 43.75em) 30vw, 100vw"
+                      srcset="assets/img/opt/cucina-comune-480.avif 480w, assets/img/opt/cucina-comune-960.avif 960w, assets/img/opt/cucina-comune-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 368px, (min-width: 43.75em) 30vw, 100vw"
+                      srcset="assets/img/opt/cucina-comune-480.webp 480w, assets/img/opt/cucina-comune-960.webp 960w, assets/img/opt/cucina-comune-1200.webp 1200w">
+              <img src="assets/img/cucina-comune.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Cucina e sala comune del Residence Roma Piacenza per studiare e socializzare">
+            </picture>
             <span class="gallery__zoom" aria-hidden="true"><svg class="icon"><use href="#i-zoom"></use></svg></span>
             <span class="gallery__cap">Cucina e sala comune</span>
           </button>
@@ -379,8 +410,13 @@
                   data-src="assets/img/cortile-interno.jpg"
                   data-caption="Il cortile interno privato del residence.">
             <!-- PLACEHOLDER: sostituire assets/img/cortile-interno.jpg (1200x800) -->
-            <img src="assets/img/cortile-interno.jpg" width="1200" height="800" loading="lazy" decoding="async"
-                 alt="Cortile interno privato del Residence Roma Piacenza">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 368px, (min-width: 43.75em) 30vw, 100vw"
+                      srcset="assets/img/opt/cortile-interno-480.avif 480w, assets/img/opt/cortile-interno-960.avif 960w, assets/img/opt/cortile-interno-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 368px, (min-width: 43.75em) 30vw, 100vw"
+                      srcset="assets/img/opt/cortile-interno-480.webp 480w, assets/img/opt/cortile-interno-960.webp 960w, assets/img/opt/cortile-interno-1200.webp 1200w">
+              <img src="assets/img/cortile-interno.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Cortile interno privato del Residence Roma Piacenza">
+            </picture>
             <span class="gallery__zoom" aria-hidden="true"><svg class="icon"><use href="#i-zoom"></use></svg></span>
             <span class="gallery__cap">Cortile interno privato</span>
           </button>
@@ -470,9 +506,13 @@
                   data-src="assets/img/planimetria-camera-singola.jpg"
                   data-caption="Planimetria della camera singola — Residence Roma Piacenza.">
             <!-- PLACEHOLDER: sostituire assets/img/planimetria-camera-singola.jpg (1200x900, 4:3) -->
-            <img src="assets/img/planimetria-camera-singola.jpg" width="1200" height="900"
-                 loading="lazy" decoding="async"
-                 alt="Planimetria della camera singola del Residence Roma Piacenza">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 368px, (min-width: 64em) 30vw, (min-width: 43.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/planimetria-camera-singola-480.avif 480w, assets/img/opt/planimetria-camera-singola-960.avif 960w, assets/img/opt/planimetria-camera-singola-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 368px, (min-width: 64em) 30vw, (min-width: 43.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/planimetria-camera-singola-480.webp 480w, assets/img/opt/planimetria-camera-singola-960.webp 960w, assets/img/opt/planimetria-camera-singola-1200.webp 1200w">
+              <img src="assets/img/planimetria-camera-singola.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Planimetria della camera singola del Residence Roma Piacenza">
+            </picture>
             <span class="plan__foot">
               <span class="plan__name">
                 <svg class="icon" aria-hidden="true"><use href="#i-blueprint"></use></svg>
@@ -488,9 +528,13 @@
                   data-src="assets/img/planimetria-camera-doppia.jpg"
                   data-caption="Planimetria della camera doppia — Residence Roma Piacenza.">
             <!-- PLACEHOLDER: sostituire assets/img/planimetria-camera-doppia.jpg (1200x900, 4:3) -->
-            <img src="assets/img/planimetria-camera-doppia.jpg" width="1200" height="900"
-                 loading="lazy" decoding="async"
-                 alt="Planimetria della camera doppia del Residence Roma Piacenza">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 368px, (min-width: 64em) 30vw, (min-width: 43.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/planimetria-camera-doppia-480.avif 480w, assets/img/opt/planimetria-camera-doppia-960.avif 960w, assets/img/opt/planimetria-camera-doppia-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 368px, (min-width: 64em) 30vw, (min-width: 43.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/planimetria-camera-doppia-480.webp 480w, assets/img/opt/planimetria-camera-doppia-960.webp 960w, assets/img/opt/planimetria-camera-doppia-1200.webp 1200w">
+              <img src="assets/img/planimetria-camera-doppia.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Planimetria della camera doppia del Residence Roma Piacenza">
+            </picture>
             <span class="plan__foot">
               <span class="plan__name">
                 <svg class="icon" aria-hidden="true"><use href="#i-blueprint"></use></svg>
@@ -506,9 +550,13 @@
                   data-src="assets/img/planimetria-piano.jpg"
                   data-caption="Planimetria del piano tipo con camere e spazi comuni.">
             <!-- PLACEHOLDER: sostituire assets/img/planimetria-piano.jpg (1200x900, 4:3) -->
-            <img src="assets/img/planimetria-piano.jpg" width="1200" height="900"
-                 loading="lazy" decoding="async"
-                 alt="Planimetria del piano tipo del Residence Roma Piacenza con camere e spazi comuni">
+            <picture>
+              <source type="image/avif" sizes="(min-width: 75em) 368px, (min-width: 64em) 30vw, (min-width: 43.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/planimetria-piano-480.avif 480w, assets/img/opt/planimetria-piano-960.avif 960w, assets/img/opt/planimetria-piano-1200.avif 1200w">
+              <source type="image/webp" sizes="(min-width: 75em) 368px, (min-width: 64em) 30vw, (min-width: 43.75em) 46vw, 100vw"
+                      srcset="assets/img/opt/planimetria-piano-480.webp 480w, assets/img/opt/planimetria-piano-960.webp 960w, assets/img/opt/planimetria-piano-1200.webp 1200w">
+              <img src="assets/img/planimetria-piano.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Planimetria del piano tipo del Residence Roma Piacenza con camere e spazi comuni">
+            </picture>
             <span class="plan__foot">
               <span class="plan__name">
                 <svg class="icon" aria-hidden="true"><use href="#i-blueprint"></use></svg>
