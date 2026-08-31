@@ -37,10 +37,16 @@ database, nessuno step di build**: i file si aprono e si pubblicano così come s
 ├── assets/
 │   ├── css/style.css           # unico foglio di stile
 │   ├── js/main.js              # menu, animazioni, lightbox, mappa on-demand
-│   └── img/                    # immagini (oggi PLACEHOLDER, vedi punto 3)
+│   └── img/                    # immagini sorgente (oggi PLACEHOLDER, vedi punto 3)
+│       └── opt/                # varianti AVIF/WebP GENERATE - non modificare a mano
 └── tools/
-    └── generate-placeholders.py  # rigenera i placeholder (serve solo a te)
+    ├── requirements.txt          # dipendenze degli script (non del sito)
+    ├── generate-placeholders.py  # rigenera i placeholder
+    └── build-images.py           # genera le varianti AVIF/WebP (vedi punto 3)
 ```
+
+> `assets/img/opt/` è generata: si rigenera con un comando e va committata
+> insieme al resto. Non modificare quei file a mano.
 
 Le sezioni della pagina, nell'ordine, sono:
 Hero → `#camere` → `#servizi` → `#planimetrie` → `#posizione` → `#contatti` → footer.
@@ -100,7 +106,46 @@ Note pratiche:
   se il contenuto della foto è diverso da quello descritto: l'`alt` conta per la SEO.
   Cerca il commento `<!-- PLACEHOLDER: ... -->` che precede ogni immagine.
 * Per rigenerare i placeholder (se ne servono altri o con altre etichette):
-  `python3 tools/generate-placeholders.py` (richiede `python3 -m pip install pillow`).
+  `python3 tools/generate-placeholders.py`.
+
+### Dopo ogni sostituzione: rigenera le varianti
+
+Il sito non serve i JPEG che hai appena sostituito: serve versioni **AVIF e
+WebP** più leggere, generate in più larghezze, e lascia scegliere al browser
+quella giusta. Sono in `assets/img/opt/` e vanno rigenerate a ogni cambio.
+
+Una volta sola, per installare le dipendenze:
+
+```bash
+python3 -m pip install -r tools/requirements.txt
+```
+
+Poi, ogni volta che sostituisci una o più immagini:
+
+```bash
+python3 tools/build-images.py
+```
+
+Lo script:
+
+* genera AVIF e WebP a 480, 960, 1440 px (mai più grandi dell'originale);
+* segnala se una foto sostituita ha **proporzioni diverse** da quelle attese —
+  in quel caso vanno aggiornati `width` e `height` nel tag `<img>` corrispondente
+  in `index.html`, altrimenti il layout "salta" durante il caricamento;
+* scrive `assets/img/opt/manifest.json` con l'impronta di ogni sorgente.
+
+**Se te ne dimentichi il sito mostra ancora le foto vecchie, in silenzio.**
+Per questo il deploy su GitHub Actions esegue `build-images.py --check` e
+**si ferma con un errore** se le varianti non sono allineate ai sorgenti.
+Puoi lanciare tu stesso il controllo in qualsiasi momento:
+
+```bash
+python3 tools/build-images.py --check
+```
+
+L'HTML non va mai toccato: i tag `<picture>` puntano a nomi di file fissi.
+Fanno eccezione solo `og-image.jpg` (le anteprime social vogliono un JPEG) e la
+lightbox delle planimetrie, che apre l'originale `.jpg` a tutta risoluzione.
 
 ---
 
@@ -310,8 +355,8 @@ Cose da fare tu, dopo il primo deploy:
 
 ## 10. Note tecniche e performance
 
-Il peso del primo caricamento è di circa **125 KB** (HTML + CSS + JS compressi,
-più l'immagine hero). Scelte fatte per tenerlo basso:
+Il peso del primo caricamento è di circa **35 KB** (HTML + CSS + JS compressi,
+più l'immagine hero in AVIF). Scelte fatte per tenerlo basso:
 
 * **Zero librerie esterne.** Slider, lightbox, menu e animazioni sono ~7 KB di
   JavaScript scritto a mano. Niente jQuery, niente framework.
@@ -325,10 +370,25 @@ più l'immagine hero). Scelte fatte per tenerlo basso:
   sistema e Manrope subentra appena disponibile. Per azzerare anche questa
   richiesta esterna, rimuovi i tre `<link>` dei font in `index.html`: il sito
   resta identico nella struttura, con il font di sistema.
+* **Immagini in AVIF/WebP responsive.** Ogni foto esiste in AVIF e WebP a più
+  larghezze; i tag `<picture>` fanno scegliere al browser il formato migliore che
+  supporta e la larghezza più vicina a quella che gli serve davvero. Il JPEG resta
+  solo come rete di sicurezza per browser molto vecchi. Nessun browser moderno
+  lo scarica: verificato, zero richieste `.jpg` a caricamento completo.
+
+  | Scenario | Immagini scaricate | Prima (solo JPEG) | |
+  |---|---|---|---|
+  | Mobile 375 px @2x | 144 KB | 687 KB | **-79%** |
+  | Desktop 1440 px @1x | 82 KB | 687 KB | **-88%** |
+  | Desktop 1440 px @2x | 167 KB | 687 KB | **-76%** |
+
+  Sulla sola immagine hero — l'unica sopra la piega, quindi l'unica che pesa sul
+  tempo di apertura — si passa da **106 KB a 16 KB su mobile (-85%)**.
+
 * **Immagini**: `width`/`height` dichiarati su tutte (niente sfarfallio del layout
   durante il caricamento), `loading="lazy"` su tutte tranne l'hero, che è invece
-  in `preload` con `fetchpriority="high"` perché è l'elemento più grande della
-  prima schermata.
+  in `preload` responsive (`imagesrcset`) con `fetchpriority="high"` perché è
+  l'elemento più grande della prima schermata.
 * **Animazioni**: usano `IntersectionObserver` e si disattivano da sole se il
   sistema operativo ha attivo "riduci movimento". Senza JavaScript i contenuti
   restano visibili.

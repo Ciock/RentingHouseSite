@@ -27,6 +27,14 @@ jobs:
       - name: Checkout del repository
         uses: actions/checkout@v4
 
+      # Blocca il deploy se qualcuno ha sostituito una foto in assets/img/
+      # senza rigenerare le varianti AVIF/WebP: senza questo controllo il sito
+      # continuerebbe a mostrare la versione vecchia, in silenzio.
+      - name: Verifica che le immagini ottimizzate siano aggiornate
+        run: |
+          python3 -m pip install --quiet --disable-pip-version-check -r tools/requirements.txt
+          python3 tools/build-images.py --check
+
       - name: Configura GitHub Pages
         uses: actions/configure-pages@v5
 

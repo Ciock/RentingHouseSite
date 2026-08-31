@@ -1,0 +1,132 @@
+{
+  "widths": [
+    480,
+    960,
+    1440
+  ],
+  "formats": [
+    "avif",
+    "webp"
+  ],
+  "sources": {
+    "hero-camera.jpg": {
+      "sha": "a6aae9fba9c2be44",
+      "width": 1600,
+      "height": 1067,
+      "variants": [
+        "hero-camera-480.avif",
+        "hero-camera-480.webp",
+        "hero-camera-960.avif",
+        "hero-camera-960.webp",
+        "hero-camera-1440.avif",
+        "hero-camera-1440.webp",
+        "hero-camera-1600.avif",
+        "hero-camera-1600.webp"
+      ]
+    },
+    "camera-singola.jpg": {
+      "sha": "c3def6066528d0dd",
+      "width": 1200,
+      "height": 800,
+      "variants": [
+        "camera-singola-480.avif",
+        "camera-singola-480.webp",
+        "camera-singola-960.avif",
+        "camera-singola-960.webp",
+        "camera-singola-1200.avif",
+        "camera-singola-1200.webp"
+      ]
+    },
+    "camera-doppia.jpg": {
+      "sha": "0580092324c28c0e",
+      "width": 1200,
+      "height": 800,
+      "variants": [
+        "camera-doppia-480.avif",
+        "camera-doppia-480.webp",
+        "camera-doppia-960.avif",
+        "camera-doppia-960.webp",
+        "camera-doppia-1200.avif",
+        "camera-doppia-1200.webp"
+      ]
+    },
+    "angolo-bar.jpg": {
+      "sha": "0573e02c6258f652",
+      "width": 1200,
+      "height": 800,
+      "variants": [
+        "angolo-bar-480.avif",
+        "angolo-bar-480.webp",
+        "angolo-bar-960.avif",
+        "angolo-bar-960.webp",
+        "angolo-bar-1200.avif",
+        "angolo-bar-1200.webp"
+      ]
+    },
+    "cucina-comune.jpg": {
+      "sha": "a8165d38f2bafb1c",
+      "width": 1200,
+      "height": 800,
+      "variants": [
+        "cucina-comune-480.avif",
+        "cucina-comune-480.webp",
+        "cucina-comune-960.avif",
+        "cucina-comune-960.webp",
+        "cucina-comune-1200.avif",
+        "cucina-comune-1200.webp"
+      ]
+    },
+    "cortile-interno.jpg": {
+      "sha": "cb372e2e98c3f827",
+      "width": 1200,
+      "height": 800,
+      "variants": [
+        "cortile-interno-480.avif",
+        "cortile-interno-480.webp",
+        "cortile-interno-960.avif",
+        "cortile-interno-960.webp",
+        "cortile-interno-1200.avif",
+        "cortile-interno-1200.webp"
+      ]
+    },
+    "planimetria-camera-singola.jpg": {
+      "sha": "f7edc4b0bbfa90ea",
+      "width": 1200,
+      "height": 900,
+      "variants": [
+        "planimetria-camera-singola-480.avif",
+        "planimetria-camera-singola-480.webp",
+        "planimetria-camera-singola-960.avif",
+        "planimetria-camera-singola-960.webp",
+        "planimetria-camera-singola-1200.avif",
+        "planimetria-camera-singola-1200.webp"
+      ]
+    },
+    "planimetria-camera-doppia.jpg": {
+      "sha": "7937ece40cc10e13",
+      "width": 1200,
+      "height": 900,
+      "variants": [
+        "planimetria-camera-doppia-480.avif",
+        "planimetria-camera-doppia-480.webp",
+        "planimetria-camera-doppia-960.avif",
+        "planimetria-camera-doppia-960.webp",
+        "planimetria-camera-doppia-1200.avif",
+        "planimetria-camera-doppia-1200.webp"
+      ]
+    },
+    "planimetria-piano.jpg": {
+      "sha": "0c1e63c475ffa129",
+      "width": 1200,
+      "height": 900,
+      "variants": [
+        "planimetria-piano-480.avif",
+        "planimetria-piano-480.webp",
+        "planimetria-piano-960.avif",
+        "planimetria-piano-960.webp",
+        "planimetria-piano-1200.avif",
+        "planimetria-piano-1200.webp"
+      ]
+    }
+  }
+}

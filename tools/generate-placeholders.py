@@ -160,3 +160,5 @@ if __name__ == "__main__":
     og_image()
     touch_icon()
     print("Fatto.")
+    print("\nOra rigenera le varianti AVIF/WebP:")
+    print("  python3 tools/build-images.py")

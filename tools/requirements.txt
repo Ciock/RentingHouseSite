@@ -1,0 +1,7 @@
+# Dipendenze degli script in tools/ (solo per chi rigenera le immagini,
+# il sito pubblicato non ha alcuna dipendenza).
+#
+#   python3 -m pip install -r tools/requirements.txt
+#
+Pillow>=10.0
+pillow-avif-plugin>=1.4
