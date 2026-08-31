@@ -564,7 +564,15 @@ body.nav-open { overflow: hidden; }
   transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
 }
 .plan:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--navy-700); }
-.plan img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--white); }
+/* Le planimetrie sono scansioni verticali in formato A4 (5:7). Si usa
+   object-fit: contain e non cover: una planimetria tagliata è inutile, meglio
+   due sottili bande bianche ai lati quando le proporzioni non coincidono. */
+.plan img {
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  object-fit: contain;
+  background: var(--white);
+}
 
 .plan__foot {
   display: flex;
@@ -575,7 +583,7 @@ body.nav-open { overflow: hidden; }
   background: var(--white);
   border-top: 1px solid var(--line);
 }
-.plan__name { display: inline-flex; align-items: center; gap: .5rem; font-weight: 800; color: var(--navy-900); font-size: .9375rem; }
+.plan__name { display: inline-flex; align-items: center; gap: .5rem; font-weight: 800; color: var(--navy-900); font-size: .9375rem; white-space: nowrap; }
 .plan__name .icon { color: var(--gold-500); }
 .plan__zoom { display: inline-flex; align-items: center; gap: .35rem; font-size: .8125rem; font-weight: 700; color: var(--ink-400); }
 .plan__zoom .icon { width: 1rem; height: 1rem; }
@@ -818,8 +826,11 @@ body.nav-open { overflow: hidden; }
 
 /* ---------------------- 10 Lightbox e animazioni ------------------------- */
 .lightbox {
-  width: min(94vw, 1100px);
-  max-width: 94vw;
+  /* larghezza automatica: la finestra si adatta alle proporzioni dell'immagine,
+     così una planimetria verticale non lascia due bande vuote ai lati */
+  width: fit-content;          /* 'auto' farebbe stirare il <dialog> a tutta larghezza */
+  min-width: min(94vw, 380px);
+  max-width: min(94vw, 1100px);
   max-height: 92vh;
   padding: 0;
   border: 0;
@@ -832,8 +843,10 @@ body.nav-open { overflow: hidden; }
 
 .lightbox__fig { display: grid; }
 .lightbox__fig img {
-  width: 100%;
-  max-height: 78vh;
+  width: auto;
+  height: auto;
+  max-width: min(94vw, 1100px);
+  max-height: 80vh;
   object-fit: contain;
   background: var(--paper-2);
   border-radius: var(--radius) var(--radius) 0 0;
@@ -963,7 +976,10 @@ body.nav-open { overflow: hidden; }
   .hero__media img { aspect-ratio: 4 / 3; }
 
   .services { grid-template-columns: repeat(3, 1fr); }
-  .plans { grid-template-columns: repeat(3, 1fr); }
+  .plans { grid-template-columns: repeat(4, 1fr); }
+  /* Con quattro colonne la card è stretta: resta la sola lente,
+     il nome della planimetria ha la precedenza. */
+  .plan__zoom-label { display: none; }
 
   .location { grid-template-columns: 1fr 1fr; align-items: start; }
   .location__map { position: sticky; top: calc(var(--header-h) + 1.5rem); }

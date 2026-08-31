@@ -90,42 +90,55 @@
       ]
     },
     "planimetria-camera-singola.jpg": {
-      "sha": "f7edc4b0bbfa90ea",
-      "width": 1200,
-      "height": 900,
+      "sha": "a9164ce15636be2a",
+      "width": 900,
+      "height": 1260,
       "variants": [
         "planimetria-camera-singola-480.avif",
         "planimetria-camera-singola-480.webp",
-        "planimetria-camera-singola-960.avif",
-        "planimetria-camera-singola-960.webp",
-        "planimetria-camera-singola-1200.avif",
-        "planimetria-camera-singola-1200.webp"
+        "planimetria-camera-singola-900.avif",
+        "planimetria-camera-singola-900.webp"
       ]
     },
     "planimetria-camera-doppia.jpg": {
-      "sha": "7937ece40cc10e13",
-      "width": 1200,
-      "height": 900,
+      "sha": "11543223f5b65dee",
+      "width": 900,
+      "height": 1260,
       "variants": [
         "planimetria-camera-doppia-480.avif",
         "planimetria-camera-doppia-480.webp",
-        "planimetria-camera-doppia-960.avif",
-        "planimetria-camera-doppia-960.webp",
-        "planimetria-camera-doppia-1200.avif",
-        "planimetria-camera-doppia-1200.webp"
+        "planimetria-camera-doppia-900.avif",
+        "planimetria-camera-doppia-900.webp"
       ]
     },
-    "planimetria-piano.jpg": {
-      "sha": "0c1e63c475ffa129",
-      "width": 1200,
-      "height": 900,
+    "planimetria-piano-primo.jpg": {
+      "sha": "ee769cbb2b1f1adf",
+      "width": 2496,
+      "height": 3496,
       "variants": [
-        "planimetria-piano-480.avif",
-        "planimetria-piano-480.webp",
-        "planimetria-piano-960.avif",
-        "planimetria-piano-960.webp",
-        "planimetria-piano-1200.avif",
-        "planimetria-piano-1200.webp"
+        "planimetria-piano-primo-480.avif",
+        "planimetria-piano-primo-480.webp",
+        "planimetria-piano-primo-960.avif",
+        "planimetria-piano-primo-960.webp",
+        "planimetria-piano-primo-1440.avif",
+        "planimetria-piano-primo-1440.webp",
+        "planimetria-piano-primo-1600.avif",
+        "planimetria-piano-primo-1600.webp"
+      ]
+    },
+    "planimetria-piano-secondo.jpg": {
+      "sha": "d611fbc5b0cb9d71",
+      "width": 2500,
+      "height": 3496,
+      "variants": [
+        "planimetria-piano-secondo-480.avif",
+        "planimetria-piano-secondo-480.webp",
+        "planimetria-piano-secondo-960.avif",
+        "planimetria-piano-secondo-960.webp",
+        "planimetria-piano-secondo-1440.avif",
+        "planimetria-piano-secondo-1440.webp",
+        "planimetria-piano-secondo-1600.avif",
+        "planimetria-piano-secondo-1600.webp"
       ]
     }
   }

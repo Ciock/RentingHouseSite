@@ -44,6 +44,11 @@ MANIFEST = os.path.join(OUT_DIR, "manifest.json")
 # sempre inclusa come variante massima.
 TARGET_WIDTHS = (480, 960, 1440)
 
+# Nessuna variante oltre questa larghezza, anche se il sorgente è più grande:
+# le scansioni delle planimetrie arrivano a 2500 px, ma la card più larga del
+# sito ne usa ~370 e la lightbox ~1100 su schermo retina.
+MAX_WIDTH = 1600
+
 # Solo le immagini di contenuto. Restano fuori:
 #   og-image.jpg      -> le anteprime social vogliono un JPEG
 #   apple-touch-icon  -> icona
@@ -57,7 +62,8 @@ SOURCES = [
     "cortile-interno.jpg",
     "planimetria-camera-singola.jpg",
     "planimetria-camera-doppia.jpg",
-    "planimetria-piano.jpg",
+    "planimetria-piano-primo.jpg",
+    "planimetria-piano-secondo.jpg",
 ]
 
 # Proporzioni attese dall'HTML (width/height nei tag <img>). Se una foto
@@ -70,9 +76,10 @@ EXPECTED_RATIO = {
     "angolo-bar.jpg": (3, 2),
     "cucina-comune.jpg": (3, 2),
     "cortile-interno.jpg": (3, 2),
-    "planimetria-camera-singola.jpg": (4, 3),
-    "planimetria-camera-doppia.jpg": (4, 3),
-    "planimetria-piano.jpg": (4, 3),
+    "planimetria-camera-singola.jpg": (5, 7),
+    "planimetria-camera-doppia.jpg": (5, 7),
+    "planimetria-piano-primo.jpg": (5, 7),
+    "planimetria-piano-secondo.jpg": (5, 7),
 }
 
 AVIF_OPTS = {"quality": 52, "speed": 6}
@@ -88,8 +95,8 @@ def sha(path):
 
 
 def widths_for(src_width):
-    widths = sorted({w for w in TARGET_WIDTHS if w < src_width} | {src_width})
-    return widths
+    top = min(src_width, MAX_WIDTH)
+    return sorted({w for w in TARGET_WIDTHS if w < top} | {top})
 
 
 def variants(name, src_width):
@@ -233,6 +240,17 @@ def build(force=False):
         print("\nSorgenti mancanti (saltati):")
         for m in missing:
             print(f"  - assets/img/{m}")
+
+    # Varianti rimaste da sorgenti rinominati o eliminati: vanno via, altrimenti
+    # restano nel repository e nel deploy senza che nulla le referenzi.
+    attese = {v for src in manifest["sources"].values() for v in src["variants"]}
+    orfani = [f for f in sorted(os.listdir(OUT_DIR))
+              if f.endswith((".avif", ".webp")) and f not in attese]
+    for f in orfani:
+        os.remove(os.path.join(OUT_DIR, f))
+    if orfani:
+        print(f"\nRimosse {len(orfani)} varianti orfane: "
+              + ", ".join(orfani[:4]) + (" ..." if len(orfani) > 4 else ""))
 
     with open(MANIFEST, "w", encoding="utf-8") as fh:
         json.dump(manifest, fh, indent=2, ensure_ascii=False)

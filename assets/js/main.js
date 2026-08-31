@@ -215,6 +215,16 @@
     }
 
     lastFocused = document.activeElement;
+
+    // La lightbox apre la variante ottimizzata (molto più leggera dello
+    // scan originale). Se manca o il formato non è supportato, ripiega
+    // sul JPEG di partenza, che c'è sempre.
+    var fallback = trigger.getAttribute('data-src-fallback');
+    lbImg.onerror = function () {
+      lbImg.onerror = null;
+      if (fallback) lbImg.src = fallback;
+    };
+
     lbImg.src = src;
     lbImg.alt = thumb ? thumb.alt : caption;
     lbCap.textContent = caption;

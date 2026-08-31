@@ -88,15 +88,23 @@ al centro (`object-fit: cover`).
 | `angolo-bar.jpg` | Dettaglio angolo bar / frigorifero in camera | 1200 × 800 | 3:2 |
 | `cucina-comune.jpg` | Cucina e sala comune | 1200 × 800 | 3:2 |
 | `cortile-interno.jpg` | Cortile interno privato | 1200 × 800 | 3:2 |
-| `planimetria-camera-singola.jpg` | Planimetria camera singola | 1200 × 900 | 4:3 |
-| `planimetria-camera-doppia.jpg` | Planimetria camera doppia | 1200 × 900 | 4:3 |
-| `planimetria-piano.jpg` | Planimetria del piano tipo | 1200 × 900 | 4:3 |
+| `planimetria-camera-singola.jpg` | Planimetria camera singola | 900 × 1260 | 5:7 verticale |
+| `planimetria-camera-doppia.jpg` | Planimetria camera doppia | 900 × 1260 | 5:7 verticale |
+| `planimetria-piano-primo.jpg` | Planimetria del piano primo — **già reale** | scansione A4 | 5:7 verticale |
+| `planimetria-piano-secondo.jpg` | Planimetria del piano secondo — **già reale** | scansione A4 | 5:7 verticale |
 | `og-image.jpg` | Anteprima quando il link è condiviso su WhatsApp/Facebook | 1200 × 630 | 1.91:1 |
 
 Note pratiche:
 
 * **`og-image.jpg` è già pronta e utilizzabile** (non è un placeholder): grafica
   navy/oro con nome, indirizzo e claim. Sostituiscila solo se vuoi una foto.
+* **Le due planimetrie dei piani sono reali**, non placeholder. `generate-placeholders.py`
+  le lascia intenzionalmente fuori dalla sua lista, quindi rilanciarlo non le
+  sovrascrive.
+* Le planimetrie sono mostrate con `object-fit: contain` su sfondo bianco: una
+  planimetria non va mai ritagliata, quindi se le proporzioni non coincidono
+  esattamente con 5:7 compaiono due sottili bande bianche invece di un taglio.
+  Puoi quindi caricarle in qualsiasi formato senza rompere nulla.
 * Le planimetrie possono essere anche disegni a mano scansionati o esportazioni
   da Canva: vanno bene sia `.jpg` sia `.png` (in quel caso rinomina il file in
   `.jpg` **oppure** aggiorna il `src` corrispondente in `index.html`).
@@ -378,12 +386,19 @@ più l'immagine hero in AVIF). Scelte fatte per tenerlo basso:
 
   | Scenario | Immagini scaricate | Prima (solo JPEG) | |
   |---|---|---|---|
-  | Mobile 375 px @2x | 144 KB | 687 KB | **-79%** |
-  | Desktop 1440 px @1x | 82 KB | 687 KB | **-88%** |
-  | Desktop 1440 px @2x | 167 KB | 687 KB | **-76%** |
+  | Mobile 375 px @2x | 255 KB | 2398 KB | **-89%** |
+  | Desktop 1440 px @1x | 117 KB | 2398 KB | **-95%** |
+  | Desktop 1440 px @2x | 278 KB | 2398 KB | **-88%** |
+
+  Il divario si è allargato con le planimetrie reali: sono scansioni da 880 KB
+  l'una, e la card ne usa una versione da 16 KB.
 
   Sulla sola immagine hero — l'unica sopra la piega, quindi l'unica che pesa sul
   tempo di apertura — si passa da **106 KB a 16 KB su mobile (-85%)**.
+
+* **La lightbox apre la variante ottimizzata**, non lo scan originale: una
+  planimetria ingrandita costa **175 KB invece di 880 KB**. Se il file
+  ottimizzato mancasse, il JavaScript ripiega da solo sul JPEG di partenza.
 
 * **Immagini**: `width`/`height` dichiarati su tutte (niente sfarfallio del layout
   durante il caricamento), `loading="lazy"` su tutte tranne l'hero, che è invece

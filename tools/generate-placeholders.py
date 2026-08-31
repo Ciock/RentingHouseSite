@@ -144,12 +144,14 @@ IMAGES = [
      "Spazio condiviso per studiare e socializzare"),
     ("cortile-interno.jpg", 1200, 800, "CORTILE INTERNO PRIVATO",
      "Cortile privato del residence"),
-    ("planimetria-camera-singola.jpg", 1200, 900, "PLANIMETRIA — CAMERA SINGOLA",
+    # Formato verticale 5:7, come le scansioni A4 delle planimetrie reali.
+    ("planimetria-camera-singola.jpg", 900, 1260, "PLANIMETRIA — CAMERA SINGOLA",
      "Disegno tecnico o render 2D della camera singola"),
-    ("planimetria-camera-doppia.jpg", 1200, 900, "PLANIMETRIA — CAMERA DOPPIA",
+    ("planimetria-camera-doppia.jpg", 900, 1260, "PLANIMETRIA — CAMERA DOPPIA",
      "Disegno tecnico o render 2D della camera doppia"),
-    ("planimetria-piano.jpg", 1200, 900, "PLANIMETRIA — PIANO TIPO",
-     "Distribuzione degli spazi comuni e delle camere"),
+    # ATTENZIONE: planimetria-piano-primo.jpg e planimetria-piano-secondo.jpg
+    # NON sono in questa lista perché sono planimetrie reali fornite dal cliente.
+    # Rilanciare questo script non le sovrascrive.
 ]
 
 if __name__ == "__main__":
