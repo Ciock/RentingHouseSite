@@ -132,8 +132,7 @@ def touch_icon(name="apple-touch-icon.png", size=180):
 
 IMAGES = [
     # (file, w, h, titolo, sottotitolo)
-    ("hero-camera.jpg", 1600, 1067, "RENDER HERO — CAMERA",
-     "Render fotorealistico della camera, formato orizzontale 3:2"),
+    # hero-camera.jpg NON è più qui: è la foto reale della facciata.
     ("camera-singola.jpg", 1200, 800, "CAMERA SINGOLA",
      "Render della camera singola con bagno privato e angolo bar"),
     ("camera-doppia.jpg", 1200, 800, "CAMERA DOPPIA",
@@ -144,14 +143,14 @@ IMAGES = [
      "Spazio condiviso per studiare e socializzare"),
     ("cortile-interno.jpg", 1200, 800, "CORTILE INTERNO PRIVATO",
      "Cortile privato del residence"),
-    # Formato verticale 5:7, come le scansioni A4 delle planimetrie reali.
-    ("planimetria-camera-singola.jpg", 900, 1260, "PLANIMETRIA — CAMERA SINGOLA",
+    # Quadrate, come la card delle planimetrie sul sito.
+    ("planimetria-camera-singola.jpg", 1000, 1000, "PLANIMETRIA — CAMERA SINGOLA",
      "Disegno tecnico o render 2D della camera singola"),
-    ("planimetria-camera-doppia.jpg", 900, 1260, "PLANIMETRIA — CAMERA DOPPIA",
+    ("planimetria-camera-doppia.jpg", 1000, 1000, "PLANIMETRIA — CAMERA DOPPIA",
      "Disegno tecnico o render 2D della camera doppia"),
-    # ATTENZIONE: planimetria-piano-primo.jpg e planimetria-piano-secondo.jpg
-    # NON sono in questa lista perché sono planimetrie reali fornite dal cliente.
-    # Rilanciare questo script non le sovrascrive.
+    # ATTENZIONE: hero-camera.jpg, planimetria-piano-primo.jpg e
+    # planimetria-piano-secondo.jpg NON sono in questa lista perché sono
+    # immagini reali fornite dal cliente. Rilanciare lo script non le tocca.
 ]
 
 if __name__ == "__main__":

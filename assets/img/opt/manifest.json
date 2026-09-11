@@ -10,18 +10,16 @@
   ],
   "sources": {
     "hero-camera.jpg": {
-      "sha": "a6aae9fba9c2be44",
-      "width": 1600,
-      "height": 1067,
+      "sha": "b89cdc481cef9557",
+      "width": 992,
+      "height": 1056,
       "variants": [
         "hero-camera-480.avif",
         "hero-camera-480.webp",
         "hero-camera-960.avif",
         "hero-camera-960.webp",
-        "hero-camera-1440.avif",
-        "hero-camera-1440.webp",
-        "hero-camera-1600.avif",
-        "hero-camera-1600.webp"
+        "hero-camera-992.avif",
+        "hero-camera-992.webp"
       ]
     },
     "camera-singola.jpg": {
@@ -90,55 +88,53 @@
       ]
     },
     "planimetria-camera-singola.jpg": {
-      "sha": "a9164ce15636be2a",
-      "width": 900,
-      "height": 1260,
+      "sha": "06165e3c27d494bc",
+      "width": 1000,
+      "height": 1000,
       "variants": [
         "planimetria-camera-singola-480.avif",
         "planimetria-camera-singola-480.webp",
-        "planimetria-camera-singola-900.avif",
-        "planimetria-camera-singola-900.webp"
+        "planimetria-camera-singola-960.avif",
+        "planimetria-camera-singola-960.webp",
+        "planimetria-camera-singola-1000.avif",
+        "planimetria-camera-singola-1000.webp"
       ]
     },
     "planimetria-camera-doppia.jpg": {
-      "sha": "11543223f5b65dee",
-      "width": 900,
-      "height": 1260,
+      "sha": "b792d89c6e9e7306",
+      "width": 1000,
+      "height": 1000,
       "variants": [
         "planimetria-camera-doppia-480.avif",
         "planimetria-camera-doppia-480.webp",
-        "planimetria-camera-doppia-900.avif",
-        "planimetria-camera-doppia-900.webp"
+        "planimetria-camera-doppia-960.avif",
+        "planimetria-camera-doppia-960.webp",
+        "planimetria-camera-doppia-1000.avif",
+        "planimetria-camera-doppia-1000.webp"
       ]
     },
     "planimetria-piano-primo.jpg": {
-      "sha": "ee769cbb2b1f1adf",
-      "width": 2496,
-      "height": 3496,
+      "sha": "901c960d9f9bd716",
+      "width": 1060,
+      "height": 1008,
       "variants": [
         "planimetria-piano-primo-480.avif",
         "planimetria-piano-primo-480.webp",
         "planimetria-piano-primo-960.avif",
         "planimetria-piano-primo-960.webp",
-        "planimetria-piano-primo-1440.avif",
-        "planimetria-piano-primo-1440.webp",
-        "planimetria-piano-primo-1600.avif",
-        "planimetria-piano-primo-1600.webp"
+        "planimetria-piano-primo-1060.avif",
+        "planimetria-piano-primo-1060.webp"
       ]
     },
     "planimetria-piano-secondo.jpg": {
-      "sha": "d611fbc5b0cb9d71",
-      "width": 2500,
-      "height": 3496,
+      "sha": "899a54c64251d7cb",
+      "width": 928,
+      "height": 1135,
       "variants": [
         "planimetria-piano-secondo-480.avif",
         "planimetria-piano-secondo-480.webp",
-        "planimetria-piano-secondo-960.avif",
-        "planimetria-piano-secondo-960.webp",
-        "planimetria-piano-secondo-1440.avif",
-        "planimetria-piano-secondo-1440.webp",
-        "planimetria-piano-secondo-1600.avif",
-        "planimetria-piano-secondo-1600.webp"
+        "planimetria-piano-secondo-928.avif",
+        "planimetria-piano-secondo-928.webp"
       ]
     }
   }

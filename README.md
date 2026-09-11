@@ -82,32 +82,33 @@ al centro (`object-fit: cover`).
 
 | File in `assets/img/` | Cosa serve | Dimensioni consigliate | Proporzioni |
 |---|---|---|---|
-| `hero-camera.jpg` | Render principale di una camera (immagine di apertura) | 1600 × 1067 | 3:2 |
+| `hero-camera.jpg` | Immagine di apertura — **già reale** (foto della facciata) | almeno 1600 px di larghezza | qualsiasi |
 | `camera-singola.jpg` | Render della camera singola | 1200 × 800 | 3:2 |
 | `camera-doppia.jpg` | Render della camera doppia | 1200 × 800 | 3:2 |
 | `angolo-bar.jpg` | Dettaglio angolo bar / frigorifero in camera | 1200 × 800 | 3:2 |
 | `cucina-comune.jpg` | Cucina e sala comune | 1200 × 800 | 3:2 |
 | `cortile-interno.jpg` | Cortile interno privato | 1200 × 800 | 3:2 |
-| `planimetria-camera-singola.jpg` | Planimetria camera singola | 900 × 1260 | 5:7 verticale |
-| `planimetria-camera-doppia.jpg` | Planimetria camera doppia | 900 × 1260 | 5:7 verticale |
-| `planimetria-piano-primo.jpg` | Planimetria del piano primo — **già reale** | scansione A4 | 5:7 verticale |
-| `planimetria-piano-secondo.jpg` | Planimetria del piano secondo — **già reale** | scansione A4 | 5:7 verticale |
+| `planimetria-camera-singola.jpg` | Planimetria camera singola | 1000 × 1000 | qualsiasi |
+| `planimetria-camera-doppia.jpg` | Planimetria camera doppia | 1000 × 1000 | qualsiasi |
+| `planimetria-piano-primo.jpg` | Planimetria del piano primo — **già reale** | almeno 1000 px | qualsiasi |
+| `planimetria-piano-secondo.jpg` | Planimetria del piano secondo — **già reale** | almeno 1000 px | qualsiasi |
 | `og-image.jpg` | Anteprima quando il link è condiviso su WhatsApp/Facebook | 1200 × 630 | 1.91:1 |
 
 Note pratiche:
 
 * **`og-image.jpg` è già pronta e utilizzabile** (non è un placeholder): grafica
   navy/oro con nome, indirizzo e claim. Sostituiscila solo se vuoi una foto.
-* **Le due planimetrie dei piani sono reali**, non placeholder. `generate-placeholders.py`
-  le lascia intenzionalmente fuori dalla sua lista, quindi rilanciarlo non le
-  sovrascrive.
-* Le planimetrie sono mostrate con `object-fit: contain` su sfondo bianco: una
-  planimetria non va mai ritagliata, quindi se le proporzioni non coincidono
-  esattamente con 5:7 compaiono due sottili bande bianche invece di un taglio.
-  Puoi quindi caricarle in qualsiasi formato senza rompere nulla.
-* Le planimetrie possono essere anche disegni a mano scansionati o esportazioni
-  da Canva: vanno bene sia `.jpg` sia `.png` (in quel caso rinomina il file in
-  `.jpg` **oppure** aggiorna il `src` corrispondente in `index.html`).
+* **Hero e planimetrie dei piani sono immagini reali**, non placeholder.
+  `generate-placeholders.py` le lascia intenzionalmente fuori dalla sua lista,
+  quindi rilanciarlo non le sovrascrive.
+* **L'hero segue le proporzioni della foto**: nessun ritaglio fisso, qualunque
+  formato tu carichi si vede intero. Meglio però una foto larga almeno 1600 px,
+  altrimenti sugli schermi retina da desktop appare leggermente morbida.
+* **Le planimetrie si vedono sempre intere**, in una card quadrata con
+  `object-fit: contain`: se le proporzioni non coincidono compaiono due sottili
+  bande invece di un taglio. Anche qui va bene qualsiasi formato.
+* Il nome del file conta, l'estensione no: `hero-camera.jpeg`, `.JPG` o `.png`
+  vengono portati a `.jpg` dallo script (vedi sotto).
 * Comprimi le immagini prima di caricarle: puntare a **150–250 KB per immagine**.
   Strumenti gratuiti: [squoosh.app](https://squoosh.app) o [tinypng.com](https://tinypng.com).
 * Dopo aver sostituito un'immagine, **aggiorna il testo `alt`** nell'`index.html`
@@ -136,10 +137,16 @@ python3 tools/build-images.py
 
 Lo script:
 
-* genera AVIF e WebP a 480, 960, 1440 px (mai più grandi dell'originale);
-* segnala se una foto sostituita ha **proporzioni diverse** da quelle attese —
-  in quel caso vanno aggiornati `width` e `height` nel tag `<img>` corrispondente
-  in `index.html`, altrimenti il layout "salta" durante il caricamento;
+* rinomina in `.jpg` i file salvati come `.jpeg` / `.JPG`, e converte in JPEG
+  quelli salvati come `.png` o `.webp` (l'originale resta, eliminalo tu);
+* **si ferma senza toccare nulla** se manca un sorgente — proseguire ne
+  cancellerebbe le varianti lasciando l'HTML a puntare a file inesistenti;
+* genera AVIF e WebP a 480, 960, 1440 px (mai oltre l'originale, mai oltre 1600);
+* **riallinea da solo `index.html`**: `srcset`, `width`/`height`, preload
+  dell'hero e lightbox. Se una foto nuova ha dimensioni diverse dalla precedente,
+  l'HTML si aggiorna e ti dice cosa ha cambiato;
+* avvisa se una foto delle camere o della galleria ha proporzioni molto diverse
+  da 3:2, perché il sito ne mostrerà una parte ritagliata al centro;
 * scrive `assets/img/opt/manifest.json` con l'impronta di ogni sorgente.
 
 **Se te ne dimentichi il sito mostra ancora le foto vecchie, in silenzio.**
@@ -151,9 +158,15 @@ Puoi lanciare tu stesso il controllo in qualsiasi momento:
 python3 tools/build-images.py --check
 ```
 
-L'HTML non va mai toccato: i tag `<picture>` puntano a nomi di file fissi.
-Fanno eccezione solo `og-image.jpg` (le anteprime social vogliono un JPEG) e la
-lightbox delle planimetrie, che apre l'originale `.jpg` a tutta risoluzione.
+Il `--check` verifica anche che ogni variante citata in `index.html` esista
+e che l'HTML sia allineato alle dimensioni reali delle foto.
+
+Quello che lo script **non** può fare è riscrivere i testi: se l'immagine nuova
+mostra un soggetto diverso, aggiorna a mano `alt` (e `data-caption` per le
+planimetrie) in `index.html`. Cerca il nome del file, sono subito accanto.
+
+Resta fuori dalla pipeline solo `og-image.jpg`: le anteprime social vogliono
+un JPEG vero.
 
 ---
 

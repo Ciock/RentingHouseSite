@@ -415,9 +415,12 @@ body.nav-open { overflow: hidden; }
 .hero__trust .icon { width: 1rem; height: 1rem; color: var(--gold-400); }
 
 .hero__media { position: relative; }
+/* L'hero segue le proporzioni della foto (width/height riscritti da
+   tools/build-images.py): nessun ritaglio fisso. max-height è solo una rete
+   di sicurezza per foto molto verticali. */
 .hero__media img {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  max-height: min(80vh, 720px);
   object-fit: cover;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
@@ -564,12 +567,12 @@ body.nav-open { overflow: hidden; }
   transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
 }
 .plan:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--navy-700); }
-/* Le planimetrie sono scansioni verticali in formato A4 (5:7). Si usa
-   object-fit: contain e non cover: una planimetria tagliata è inutile, meglio
-   due sottili bande bianche ai lati quando le proporzioni non coincidono. */
+/* Card quadrata con object-fit: contain e non cover: una planimetria tagliata
+   è inutile, meglio due sottili bande quando le proporzioni non coincidono.
+   Accetta così planimetrie di qualsiasi formato. */
 .plan img {
   width: 100%;
-  aspect-ratio: 5 / 7;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   background: var(--white);
 }
@@ -852,6 +855,10 @@ body.nav-open { overflow: hidden; }
   border-radius: var(--radius) var(--radius) 0 0;
 }
 .lightbox__fig figcaption {
+  /* width: 0 + min-width: 100% = la didascalia va a capo dentro la larghezza
+     dell'immagine invece di allargare la finestra oltre l'immagine */
+  width: 0;
+  min-width: 100%;
   padding: .9rem 1.1rem;
   font-size: .9375rem;
   font-weight: 600;
@@ -973,7 +980,6 @@ body.nav-open { overflow: hidden; }
     align-items: center;
     gap: clamp(2.5rem, 4vw, 4rem);
   }
-  .hero__media img { aspect-ratio: 4 / 3; }
 
   .services { grid-template-columns: repeat(3, 1fr); }
   .plans { grid-template-columns: repeat(4, 1fr); }

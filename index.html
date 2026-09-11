@@ -45,7 +45,7 @@
 <!-- ====================== Performance / asset ====================== -->
 <link rel="preload" as="image" type="image/avif" fetchpriority="high"
       imagesizes="(min-width: 75em) 512px, (min-width: 64em) 45vw, 100vw"
-      imagesrcset="assets/img/opt/hero-camera-480.avif 480w, assets/img/opt/hero-camera-960.avif 960w, assets/img/opt/hero-camera-1440.avif 1440w, assets/img/opt/hero-camera-1600.avif 1600w">
+      imagesrcset="assets/img/opt/hero-camera-480.avif 480w, assets/img/opt/hero-camera-960.avif 960w, assets/img/opt/hero-camera-992.avif 992w">
 <link rel="stylesheet" href="assets/css/style.css">
 
 <!-- Font Google caricato in modo non bloccante: il testo è subito leggibile
@@ -264,13 +264,14 @@
       </div>
 
       <figure class="hero__media">
-        <!-- PLACEHOLDER: sostituire assets/img/hero-camera.jpg con il render reale (1600x1067, 3:2) -->
+        <!-- Foto reale della facciata. Per cambiarla: sovrascrivi assets/img/hero-camera.jpg
+             (qualsiasi proporzione, meglio se larga almeno 1600px) e lancia tools/build-images.py. -->
         <picture>
           <source type="image/avif" sizes="(min-width: 75em) 512px, (min-width: 64em) 45vw, 100vw"
-                  srcset="assets/img/opt/hero-camera-480.avif 480w, assets/img/opt/hero-camera-960.avif 960w, assets/img/opt/hero-camera-1440.avif 1440w, assets/img/opt/hero-camera-1600.avif 1600w">
+                  srcset="assets/img/opt/hero-camera-480.avif 480w, assets/img/opt/hero-camera-960.avif 960w, assets/img/opt/hero-camera-992.avif 992w">
           <source type="image/webp" sizes="(min-width: 75em) 512px, (min-width: 64em) 45vw, 100vw"
-                  srcset="assets/img/opt/hero-camera-480.webp 480w, assets/img/opt/hero-camera-960.webp 960w, assets/img/opt/hero-camera-1440.webp 1440w, assets/img/opt/hero-camera-1600.webp 1600w">
-          <img src="assets/img/hero-camera.jpg" width="1600" height="1067" fetchpriority="high" decoding="async" alt="Camera per studenti del Residence Roma Piacenza, arredata e appena ristrutturata">
+                  srcset="assets/img/opt/hero-camera-480.webp 480w, assets/img/opt/hero-camera-960.webp 960w, assets/img/opt/hero-camera-992.webp 992w">
+          <img src="assets/img/hero-camera.jpg" width="992" height="1056" fetchpriority="high" decoding="async" alt="Facciata gialla del Residence Roma Piacenza in Via Roma 324, appena ristrutturata, con il portone d'ingresso verde">
         </picture>
         <figcaption class="hero__media-tag">
           <svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>
@@ -493,9 +494,8 @@
         <p class="eyebrow">Spazi e metrature</p>
         <h2 id="planimetrie-title">Planimetrie</h2>
         <p class="section__lead">
-          Le planimetrie dei due piani del residence, con la distribuzione delle
-          camere e degli spazi comuni. Clicca su una planimetria per ingrandirla;
-          per le metrature esatte scrivici pure su WhatsApp.
+          Le planimetrie dei due piani del residence, con le metrature di camere,
+          bagni e spazi comuni. Clicca su una planimetria per ingrandirla.
         </p>
       </header>
 
@@ -503,17 +503,15 @@
         <li class="reveal">
           <button class="plan" type="button"
                   data-lightbox
-                  data-src="assets/img/opt/planimetria-camera-singola-900.avif"
+                  data-src="assets/img/opt/planimetria-camera-singola-1000.avif"
                   data-src-fallback="assets/img/planimetria-camera-singola.jpg"
                   data-caption="Planimetria della camera singola — Residence Roma Piacenza.">
             <picture>
               <source type="image/avif" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-camera-singola-480.avif 480w,
-                          assets/img/opt/planimetria-camera-singola-900.avif 900w">
+                      srcset="assets/img/opt/planimetria-camera-singola-480.avif 480w, assets/img/opt/planimetria-camera-singola-960.avif 960w, assets/img/opt/planimetria-camera-singola-1000.avif 1000w">
               <source type="image/webp" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-camera-singola-480.webp 480w,
-                          assets/img/opt/planimetria-camera-singola-900.webp 900w">
-              <img src="assets/img/planimetria-camera-singola.jpg" width="900" height="1260"
+                      srcset="assets/img/opt/planimetria-camera-singola-480.webp 480w, assets/img/opt/planimetria-camera-singola-960.webp 960w, assets/img/opt/planimetria-camera-singola-1000.webp 1000w">
+              <img src="assets/img/planimetria-camera-singola.jpg" width="1000" height="1000"
                    loading="lazy" decoding="async"
                    alt="Planimetria della camera singola del Residence Roma Piacenza">
             </picture>
@@ -529,17 +527,15 @@
         <li class="reveal">
           <button class="plan" type="button"
                   data-lightbox
-                  data-src="assets/img/opt/planimetria-camera-doppia-900.avif"
+                  data-src="assets/img/opt/planimetria-camera-doppia-1000.avif"
                   data-src-fallback="assets/img/planimetria-camera-doppia.jpg"
                   data-caption="Planimetria della camera doppia — Residence Roma Piacenza.">
             <picture>
               <source type="image/avif" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-camera-doppia-480.avif 480w,
-                          assets/img/opt/planimetria-camera-doppia-900.avif 900w">
+                      srcset="assets/img/opt/planimetria-camera-doppia-480.avif 480w, assets/img/opt/planimetria-camera-doppia-960.avif 960w, assets/img/opt/planimetria-camera-doppia-1000.avif 1000w">
               <source type="image/webp" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-camera-doppia-480.webp 480w,
-                          assets/img/opt/planimetria-camera-doppia-900.webp 900w">
-              <img src="assets/img/planimetria-camera-doppia.jpg" width="900" height="1260"
+                      srcset="assets/img/opt/planimetria-camera-doppia-480.webp 480w, assets/img/opt/planimetria-camera-doppia-960.webp 960w, assets/img/opt/planimetria-camera-doppia-1000.webp 1000w">
+              <img src="assets/img/planimetria-camera-doppia.jpg" width="1000" height="1000"
                    loading="lazy" decoding="async"
                    alt="Planimetria della camera doppia del Residence Roma Piacenza">
             </picture>
@@ -555,23 +551,17 @@
         <li class="reveal">
           <button class="plan" type="button"
                   data-lightbox
-                  data-src="assets/img/opt/planimetria-piano-primo-1600.avif"
+                  data-src="assets/img/opt/planimetria-piano-primo-1060.avif"
                   data-src-fallback="assets/img/planimetria-piano-primo.jpg"
-                  data-caption="Piano primo — camere 1.1, 1.2, 1.3 e 1.4, zona comune e balcone.">
+                  data-caption="Piano primo — 4 camere da 12,5 a 15,5 mq, 4 bagni, soggiorno di 14,7 mq, loggia e balcone.">
             <picture>
               <source type="image/avif" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-piano-primo-480.avif 480w,
-                          assets/img/opt/planimetria-piano-primo-960.avif 960w,
-                          assets/img/opt/planimetria-piano-primo-1440.avif 1440w,
-                          assets/img/opt/planimetria-piano-primo-1600.avif 1600w">
+                      srcset="assets/img/opt/planimetria-piano-primo-480.avif 480w, assets/img/opt/planimetria-piano-primo-960.avif 960w, assets/img/opt/planimetria-piano-primo-1060.avif 1060w">
               <source type="image/webp" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-piano-primo-480.webp 480w,
-                          assets/img/opt/planimetria-piano-primo-960.webp 960w,
-                          assets/img/opt/planimetria-piano-primo-1440.webp 1440w,
-                          assets/img/opt/planimetria-piano-primo-1600.webp 1600w">
-              <img src="assets/img/planimetria-piano-primo.jpg" width="2496" height="3496"
+                      srcset="assets/img/opt/planimetria-piano-primo-480.webp 480w, assets/img/opt/planimetria-piano-primo-960.webp 960w, assets/img/opt/planimetria-piano-primo-1060.webp 1060w">
+              <img src="assets/img/planimetria-piano-primo.jpg" width="1060" height="1008"
                    loading="lazy" decoding="async"
-                   alt="Planimetria del piano primo del Residence Roma Piacenza: camere 1.1, 1.2, 1.3 e 1.4 con bagno privato, zona cucina e sala comune, balcone">
+                   alt="Planimetria del piano primo del Residence Roma Piacenza: quattro camere da 12,53 a 15,48 mq, quattro bagni, soggiorno di 14,71 mq, loggia e balcone">
             </picture>
             <span class="plan__foot">
               <span class="plan__name">
@@ -585,23 +575,17 @@
         <li class="reveal">
           <button class="plan" type="button"
                   data-lightbox
-                  data-src="assets/img/opt/planimetria-piano-secondo-1600.avif"
+                  data-src="assets/img/opt/planimetria-piano-secondo-928.avif"
                   data-src-fallback="assets/img/planimetria-piano-secondo.jpg"
-                  data-caption="Piano secondo — camere 2.1, 2.2, 2.3 e 2.4, zona comune, loggia e balcone.">
+                  data-caption="Piano secondo — 3 camere da 11,9 a 15,8 mq, 4 bagni, soggiorno di 30 mq con zona cottura, loggia e balcone.">
             <picture>
               <source type="image/avif" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-piano-secondo-480.avif 480w,
-                          assets/img/opt/planimetria-piano-secondo-960.avif 960w,
-                          assets/img/opt/planimetria-piano-secondo-1440.avif 1440w,
-                          assets/img/opt/planimetria-piano-secondo-1600.avif 1600w">
+                      srcset="assets/img/opt/planimetria-piano-secondo-480.avif 480w, assets/img/opt/planimetria-piano-secondo-928.avif 928w">
               <source type="image/webp" sizes="(min-width: 75em) 272px, (min-width: 64em) 23vw, (min-width: 43.75em) 46vw, 100vw"
-                      srcset="assets/img/opt/planimetria-piano-secondo-480.webp 480w,
-                          assets/img/opt/planimetria-piano-secondo-960.webp 960w,
-                          assets/img/opt/planimetria-piano-secondo-1440.webp 1440w,
-                          assets/img/opt/planimetria-piano-secondo-1600.webp 1600w">
-              <img src="assets/img/planimetria-piano-secondo.jpg" width="2500" height="3496"
+                      srcset="assets/img/opt/planimetria-piano-secondo-480.webp 480w, assets/img/opt/planimetria-piano-secondo-928.webp 928w">
+              <img src="assets/img/planimetria-piano-secondo.jpg" width="928" height="1135"
                    loading="lazy" decoding="async"
-                   alt="Planimetria del piano secondo del Residence Roma Piacenza: camere 2.1, 2.2, 2.3 e 2.4 con bagno privato, zona cucina e sala comune, loggia e balcone">
+                   alt="Planimetria del piano secondo del Residence Roma Piacenza: tre camere da 11,89 a 15,79 mq, quattro bagni, soggiorno di 30,01 mq con zona cottura, loggia e balcone">
             </picture>
             <span class="plan__foot">
               <span class="plan__name">
