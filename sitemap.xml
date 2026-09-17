@@ -5,20 +5,20 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ciock.github.io/RentingHouseSite/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://ciock.github.io/RentingHouseSite/assets/img/hero-camera.jpg</image:loc>
-      <image:title>Facciata del Residence Roma Piacenza in Via Roma 324</image:title>
+      <image:title>Facciata di Casa Elena Piacenza in Via Roma 324</image:title>
     </image:image>
     <image:image>
       <image:loc>https://ciock.github.io/RentingHouseSite/assets/img/camera-singola.jpg</image:loc>
-      <image:title>Camera singola — Residence Roma Piacenza</image:title>
+      <image:title>Camera singola — Casa Elena Piacenza</image:title>
     </image:image>
     <image:image>
       <image:loc>https://ciock.github.io/RentingHouseSite/assets/img/camera-doppia.jpg</image:loc>
-      <image:title>Camera doppia — Residence Roma Piacenza</image:title>
+      <image:title>Camera doppia — Casa Elena Piacenza</image:title>
     </image:image>
   </url>
 </urlset>

@@ -1,6 +1,6 @@
-# Residence Roma Piacenza — sito web
+# Casa Elena Piacenza — sito web
 
-Landing page statica (one-page) per il **Residence Roma Piacenza**, residence per
+Landing page statica (one-page) per **Casa Elena Piacenza**, casa per
 studenti universitari in Via Roma 324, Piacenza.
 
 HTML5 + CSS3 + JavaScript vanilla. **Nessun framework, nessun backend, nessun
@@ -27,7 +27,7 @@ database, nessuno step di build**: i file si aprono e si pubblicano così come s
 
 ```
 .
-├── index.html                  # tutta la pagina (7 sezioni + header/footer)
+├── index.html                  # tutta la pagina (5 sezioni + header/footer)
 ├── robots.txt                  # indicazioni per i motori di ricerca
 ├── sitemap.xml                 # mappa del sito per Google
 ├── site.webmanifest            # icona e nome se il sito viene "installato" da mobile
@@ -49,7 +49,7 @@ database, nessuno step di build**: i file si aprono e si pubblicano così come s
 > insieme al resto. Non modificare quei file a mano.
 
 Le sezioni della pagina, nell'ordine, sono:
-Hero → `#camere` → `#servizi` → `#planimetrie` → `#posizione` → `#contatti` → footer.
+Hero → `#camere` → `#servizi` → `#posizione` → `#contatti` → footer.
 
 ---
 
@@ -88,25 +88,22 @@ al centro (`object-fit: cover`).
 | `angolo-bar.jpg` | Dettaglio angolo bar / frigorifero in camera | 1200 × 800 | 3:2 |
 | `cucina-comune.jpg` | Cucina e sala comune | 1200 × 800 | 3:2 |
 | `cortile-interno.jpg` | Cortile interno privato | 1200 × 800 | 3:2 |
-| `planimetria-camera-singola.jpg` | Planimetria camera singola | 1000 × 1000 | qualsiasi |
-| `planimetria-camera-doppia.jpg` | Planimetria camera doppia | 1000 × 1000 | qualsiasi |
-| `planimetria-piano-primo.jpg` | Planimetria del piano primo — **già reale** | almeno 1000 px | qualsiasi |
-| `planimetria-piano-secondo.jpg` | Planimetria del piano secondo — **già reale** | almeno 1000 px | qualsiasi |
 | `og-image.jpg` | Anteprima quando il link è condiviso su WhatsApp/Facebook | 1200 × 630 | 1.91:1 |
+
+> I file `planimetria-*.jpg` e `Piano1/2.png` restano in `assets/img/` ma **non
+> sono più referenziati**: la sezione Planimetrie è stata rimossa su richiesta
+> del cliente. Non cancellarli finché la decisione non è definitiva.
 
 Note pratiche:
 
 * **`og-image.jpg` è già pronta e utilizzabile** (non è un placeholder): grafica
   navy/oro con nome, indirizzo e claim. Sostituiscila solo se vuoi una foto.
-* **Hero e planimetrie dei piani sono immagini reali**, non placeholder.
-  `generate-placeholders.py` le lascia intenzionalmente fuori dalla sua lista,
-  quindi rilanciarlo non le sovrascrive.
+* **L'hero è un'immagine reale**, non un placeholder.
+  `generate-placeholders.py` la lascia intenzionalmente fuori dalla sua lista,
+  quindi rilanciarlo non la sovrascrive.
 * **L'hero segue le proporzioni della foto**: nessun ritaglio fisso, qualunque
   formato tu carichi si vede intero. Meglio però una foto larga almeno 1600 px,
   altrimenti sugli schermi retina da desktop appare leggermente morbida.
-* **Le planimetrie si vedono sempre intere**, in una card quadrata con
-  `object-fit: contain`: se le proporzioni non coincidono compaiono due sottili
-  bande invece di un taglio. Anche qui va bene qualsiasi formato.
 * Il nome del file conta, l'estensione no: `hero-camera.jpeg`, `.JPG` o `.png`
   vengono portati a `.jpg` dallo script (vedi sotto).
 * Comprimi le immagini prima di caricarle: puntare a **150–250 KB per immagine**.
@@ -163,7 +160,7 @@ e che l'HTML sia allineato alle dimensioni reali delle foto.
 
 Quello che lo script **non** può fare è riscrivere i testi: se l'immagine nuova
 mostra un soggetto diverso, aggiorna a mano `alt` (e `data-caption` per le
-planimetrie) in `index.html`. Cerca il nome del file, sono subito accanto.
+immagini della galleria) in `index.html`. Cerca il nome del file, sono subito accanto.
 
 Resta fuori dalla pipeline solo `og-image.jpg`: le anteprime social vogliono
 un JPEG vero.
@@ -172,12 +169,12 @@ un JPEG vero.
 
 ## 4. Sostituire il logo
 
-Oggi il logo è un **placeholder tipografico**: un quadrato bianco con la "R" e il
+Oggi il logo è un **placeholder tipografico**: un quadrato bianco con la "E" e il
 bordo oro, coerente con la locandina. Compare in due punti (header e footer).
 
 Per usare il logo definitivo:
 
-1. Metti il file in `assets/img/logo-residence-roma.svg` (SVG preferibile; in
+1. Metti il file in `assets/img/logo-casa-elena.svg` (SVG preferibile; in
    alternativa PNG trasparente da almeno 512 px).
 2. In `index.html` cerca `brand__mark` (2 occorrenze) e sostituisci
 
@@ -188,7 +185,7 @@ Per usare il logo definitivo:
    con
 
    ```html
-   <img class="brand__mark" src="assets/img/logo-residence-roma.svg"
+   <img class="brand__mark" src="assets/img/logo-casa-elena.svg"
         width="38" height="38" alt="" aria-hidden="true">
    ```
 
@@ -227,7 +224,7 @@ grep -rl "ciock.github.io/RentingHouseSite" . --exclude-dir=.git
   URL (`%20` = spazio). Ogni pulsante ha un messaggio diverso (visita, camera
   singola, camera doppia, informazioni generiche).
 * **Telefono cliccabile**: cerca `tel:+393929715552`.
-* **Email**: cerca `ResidenceRoma.Piacenza@gmail.com` (link `mailto:`, footer e JSON-LD).
+* **Email**: cerca `casaelena.piacenza@gmail.com` (link `mailto:`, footer e JSON-LD).
 * **Social**: nel footer i due link Instagram/Facebook hanno `href="#"`.
   Inserisci gli URL reali, oppure elimina l'intero blocco `<div class="footer__col">`
   che contiene `footer__social`.
@@ -288,7 +285,7 @@ semplici (tutte con piano gratuito):
 **C. Web3Forms / Getform** — alternative equivalenti a Formspree.
 
 In tutti i casi, verifica che l'email di destinazione sia
-`ResidenceRoma.Piacenza@gmail.com` e fai un invio di prova.
+`casaelena.piacenza@gmail.com` e fai un invio di prova.
 
 ---
 
@@ -301,7 +298,7 @@ Il sito è completamente statico: qualsiasi hosting va bene, anche gratuito.
 ```bash
 git init
 git add .
-git commit -m "Sito Residence Roma Piacenza"
+git commit -m "Sito Casa Elena Piacenza"
 git branch -M main
 git remote add origin https://github.com/Ciock/RentingHouseSite.git
 git push -u origin main
@@ -329,7 +326,7 @@ preset **Other** → Deploy.
 
 ### Dominio personalizzato
 
-Quando il cliente conferma il dominio (es. `residenceromapiacenza.it`):
+Quando il cliente conferma il dominio (es. `casaelenapiacenza.it`):
 
 1. Collegalo dal pannello dell'hosting (GitHub Pages: *Settings → Pages → Custom domain*).
 2. Attiva HTTPS (su tutte e tre le piattaforme è un flag, gratuito).
@@ -348,7 +345,7 @@ Cose già fatte nel codice:
       tipologie di camera come `Accommodation`
 - [x] `alt` descrittivi su tutte le immagini
 - [x] `sitemap.xml`, `robots.txt`, `canonical`
-- [x] Anchor link puliti (`#camere`, `#servizi`, `#planimetrie`, `#posizione`, `#contatti`)
+- [x] Anchor link puliti (`#camere`, `#servizi`, `#posizione`, `#contatti`)
 - [x] Testi presenti nell'HTML, non generati via JavaScript
 
 Cose da fare tu, dopo il primo deploy:
@@ -356,8 +353,9 @@ Cose da fare tu, dopo il primo deploy:
 - [ ] Sostituire il dominio placeholder (punto 5)
 - [ ] Verificare il sito su [Google Search Console](https://search.google.com/search-console)
       e inviare la `sitemap.xml`
-- [ ] Creare/rivendicare la scheda **Google Business Profile** del residence:
-      per una struttura locale porta più contatti del sito stesso
+- [ ] Valutare con il cliente se creare una scheda **Google Business Profile**:
+      porta contatti, ma è una dichiarazione pubblica di attività commerciale —
+      verificare che sia coerente con l'inquadramento scelto
 - [ ] Aggiungere il **CAP** all'indirizzo (in `index.html`, dentro il blocco JSON-LD,
       aggiungi `"postalCode": "291xx"` in `address`) — non l'ho inserito per non
       indovinare un dato non presente nella locandina
@@ -403,14 +401,10 @@ più l'immagine hero in AVIF). Scelte fatte per tenerlo basso:
   | Desktop 1440 px @1x | 117 KB | 2398 KB | **-95%** |
   | Desktop 1440 px @2x | 278 KB | 2398 KB | **-88%** |
 
-  Il divario si è allargato con le planimetrie reali: sono scansioni da 880 KB
-  l'una, e la card ne usa una versione da 16 KB.
-
   Sulla sola immagine hero — l'unica sopra la piega, quindi l'unica che pesa sul
   tempo di apertura — si passa da **106 KB a 16 KB su mobile (-85%)**.
 
-* **La lightbox apre la variante ottimizzata**, non lo scan originale: una
-  planimetria ingrandita costa **175 KB invece di 880 KB**. Se il file
+* **La lightbox apre la variante ottimizzata**, non l'originale. Se il file
   ottimizzato mancasse, il JavaScript ripiega da solo sul JPEG di partenza.
 
 * **Immagini**: `width`/`height` dichiarati su tutte (niente sfarfallio del layout
@@ -430,10 +424,10 @@ più l'immagine hero in AVIF). Scelte fatte per tenerlo basso:
 |---|---|
 | < 600 px | tutto su una colonna, menu hamburger, pulsante WhatsApp flottante |
 | ≥ 600 px | servizi e footer su 2 colonne |
-| ≥ 700 px | galleria su 3 colonne, planimetrie su 2 |
+| ≥ 700 px | galleria su 3 colonne |
 | ≥ 860 px | camere affiancate su 2 colonne |
-| ≥ 900 px | menu orizzontale, contatti su 3 colonne |
-| ≥ 1024 px | hero su 2 colonne, servizi e planimetrie su 3, mappa affiancata |
+| ≥ 900 px | menu orizzontale, contatti su 3 colonne, servizi su 3 |
+| ≥ 1024 px | hero su 2 colonne, mappa affiancata |
 | ≥ 1280 px | servizi su 4 colonne |
 
 Testato a 375, 768, 1024 e 1440 px.
@@ -441,5 +435,5 @@ Testato a 375, 768, 1024 e 1440 px.
 ### Browser supportati
 
 Chrome, Edge, Firefox e Safari aggiornati (desktop e mobile). Su browser molto
-datati senza `<dialog>`, il click su una planimetria apre l'immagine in una nuova
-scheda invece della lightbox.
+datati senza `<dialog>`, il click su una foto della galleria apre l'immagine in
+una nuova scheda invece della lightbox.

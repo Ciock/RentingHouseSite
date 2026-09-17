@@ -1,12 +1,12 @@
 /* =============================================================================
-   Residence Roma Piacenza — foglio di stile unico
+   Casa Elena Piacenza — foglio di stile unico
    Mobile-first · CSS puro · nessuna dipendenza
    Indice:
      01 Token e reset          06 Servizi
-     02 Tipografia e utility   07 Planimetrie
-     03 Header e navigazione   08 Posizione e mappa
-     04 Hero                   09 Contatti, footer, FAB
-     05 Camere e galleria      10 Lightbox, animazioni, media query
+     02 Tipografia e utility   07 Posizione e mappa
+     03 Header e navigazione   08 Contatti, footer, FAB
+     04 Hero                   09 Lightbox, animazioni, media query
+     05 Camere e galleria
    ========================================================================== */
 
 /* ------------------------------- 01 Token -------------------------------- */
@@ -392,27 +392,7 @@ body.nav-open { overflow: hidden; }
 }
 .hero__lead strong { color: #fff; }
 
-.hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 2rem; }
-
-.hero__trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem .75rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, .16);
-}
-.hero__trust li {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  padding: .35rem .7rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .09);
-  font-size: .8125rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, .92);
-}
-.hero__trust .icon { width: 1rem; height: 1rem; color: var(--gold-400); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 
 .hero__media { position: relative; }
 /* L'hero segue le proporzioni della foto (width/height riscritti da
@@ -425,6 +405,14 @@ body.nav-open { overflow: hidden; }
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }
+/* Sotto i 1024px la foto sale sopra il titolo: impilata dopo il testo restava
+   sepolta e invisibile senza scroll. L'altezza è limitata perché la facciata è
+   verticale e a proporzioni piene spingerebbe l'H1 sotto la piega. */
+@media (max-width: 63.99em) {
+  .hero__media { order: -1; }
+  .hero__media img { max-height: 34vh; }
+}
+
 .hero__media-tag {
   position: absolute;
   left: 1rem;
@@ -527,8 +515,12 @@ body.nav-open { overflow: hidden; }
 /* ------------------------------ 06 Servizi ------------------------------- */
 .services { display: grid; gap: 1rem; }
 
+/* Card di sola icona e titolo: layout in riga, centrato verticalmente. */
 .service {
-  padding: clamp(1.25rem, 3vw, 1.6rem);
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: 1rem clamp(1rem, 2.5vw, 1.25rem);
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -540,58 +532,17 @@ body.nav-open { overflow: hidden; }
 .service__icon {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1rem;
-  border-radius: 14px;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   background: var(--navy-900);
   color: var(--gold-400);
 }
-.service__icon .icon { width: 1.5rem; height: 1.5rem; }
-.service h3 { margin-bottom: .35em; font-size: 1.0625rem; }
-.service p { margin: 0; font-size: .9375rem; color: var(--ink-500); }
+.service__icon .icon { width: 1.4rem; height: 1.4rem; }
+.service h3 { margin: 0; font-size: 1rem; line-height: 1.3; }
 
-/* ---------------------------- 07 Planimetrie ----------------------------- */
-.plans { display: grid; gap: 1rem; }
-
-.plan {
-  display: block;
-  width: 100%;
-  padding: 0;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  cursor: zoom-in;
-  text-align: left;
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
-}
-.plan:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--navy-700); }
-/* Card quadrata con object-fit: contain e non cover: una planimetria tagliata
-   è inutile, meglio due sottili bande quando le proporzioni non coincidono.
-   Accetta così planimetrie di qualsiasi formato. */
-.plan img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  background: var(--white);
-}
-
-.plan__foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .75rem;
-  padding: .85rem 1rem;
-  background: var(--white);
-  border-top: 1px solid var(--line);
-}
-.plan__name { display: inline-flex; align-items: center; gap: .5rem; font-weight: 800; color: var(--navy-900); font-size: .9375rem; white-space: nowrap; }
-.plan__name .icon { color: var(--gold-500); }
-.plan__zoom { display: inline-flex; align-items: center; gap: .35rem; font-size: .8125rem; font-weight: 700; color: var(--ink-400); }
-.plan__zoom .icon { width: 1rem; height: 1rem; }
-
-/* ------------------------- 08 Posizione e mappa -------------------------- */
+/* ------------------------- 07 Posizione e mappa -------------------------- */
 .location { display: grid; gap: clamp(1.5rem, 4vw, 2.5rem); }
 
 .address {
@@ -687,7 +638,7 @@ body.nav-open { overflow: hidden; }
 }
 .map__link .icon { width: 1.1rem; height: 1.1rem; }
 
-/* ------------------------ 09 Contatti / footer / FAB --------------------- */
+/* ------------------------ 08 Contatti / footer / FAB --------------------- */
 .section--cta {
   background:
     radial-gradient(760px 400px at 8% 0%, rgba(245, 185, 33, .17), transparent 62%),
@@ -827,7 +778,7 @@ body.nav-open { overflow: hidden; }
   .site-footer { padding-bottom: 4.5rem; }
 }
 
-/* ---------------------- 10 Lightbox e animazioni ------------------------- */
+/* ---------------------- 09 Lightbox e animazioni ------------------------- */
 .lightbox {
   /* larghezza automatica: la finestra si adatta alle proporzioni dell'immagine,
      così una planimetria verticale non lascia due bande vuote ai lati */
@@ -915,10 +866,9 @@ body.nav-open { overflow: hidden; }
   .footer__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ≥ 700px — galleria e planimetrie multi-colonna */
+/* ≥ 700px — galleria multi-colonna */
 @media (min-width: 43.75em) {
   .gallery { grid-template-columns: repeat(3, 1fr); }
-  .plans { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ≥ 860px — camere affiancate */
@@ -929,6 +879,8 @@ body.nav-open { overflow: hidden; }
 /* ≥ 900px — menu orizzontale, contatti in riga */
 @media (min-width: 56.25em) {
   :root { --header-h: 76px; --gutter: 2rem; }
+
+  .services { grid-template-columns: repeat(3, 1fr); }
 
   .nav-toggle { display: none; }
 
@@ -980,12 +932,6 @@ body.nav-open { overflow: hidden; }
     align-items: center;
     gap: clamp(2.5rem, 4vw, 4rem);
   }
-
-  .services { grid-template-columns: repeat(3, 1fr); }
-  .plans { grid-template-columns: repeat(4, 1fr); }
-  /* Con quattro colonne la card è stretta: resta la sola lente,
-     il nome della planimetria ha la precedenza. */
-  .plan__zoom-label { display: none; }
 
   .location { grid-template-columns: 1fr 1fr; align-items: start; }
   .location__map { position: sticky; top: calc(var(--header-h) + 1.5rem); }

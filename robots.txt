@@ -1,4 +1,4 @@
-# Residence Roma Piacenza
+# Casa Elena Piacenza
 # TODO DOMINIO: aggiornare l'URL della sitemap quando il dominio sarà definitivo.
 
 User-agent: *
